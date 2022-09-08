@@ -1,5 +1,6 @@
 package com.qh.ruyitakeaway.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -12,7 +13,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 员工信息
+ * 套餐菜品关系
  * </p>
  *
  * @author QH
@@ -21,34 +22,31 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="Employee对象", description="员工信息")
-public class Employee implements Serializable {
+@ApiModel(value="SetmealDish对象", description="套餐菜品关系")
+public class SetmealDish implements Serializable {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "姓名")
+    @ApiModelProperty(value = "套餐id ")
+    private String setmealId;
+
+    @ApiModelProperty(value = "菜品id")
+    private String dishId;
+
+    @ApiModelProperty(value = "菜品名称 （冗余字段）")
     private String name;
 
-    @ApiModelProperty(value = "用户名")
-    private String username;
+    @ApiModelProperty(value = "菜品原价（冗余字段）")
+    private BigDecimal price;
 
-    @ApiModelProperty(value = "密码")
-    private String password;
+    @ApiModelProperty(value = "份数")
+    private Integer copies;
 
-    @ApiModelProperty(value = "手机号")
-    private String phone;
-
-    @ApiModelProperty(value = "性别")
-    private String sex;
-
-    @ApiModelProperty(value = "身份证号")
-    private String idNumber;
-
-    @ApiModelProperty(value = "状态 0:禁用，1:正常")
-    private Integer status;
+    @ApiModelProperty(value = "排序")
+    private Integer sort;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
@@ -59,12 +57,13 @@ public class Employee implements Serializable {
     private Date updateTime;
 
     @ApiModelProperty(value = "创建人")
-    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     @ApiModelProperty(value = "修改人")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
+
+    @ApiModelProperty(value = "是否删除")
+    private Integer isDeleted;
 
 
 }

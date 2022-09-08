@@ -1,17 +1,20 @@
 package com.qh.ruyitakeaway.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qh.ruyitakeaway.entity.Employee;
 import com.qh.ruyitakeaway.mapper.EmployeeMapper;
 import com.qh.ruyitakeaway.service.EmployeeService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
- * @Author QH
- * @Date 2022/9/8 19:21
- * @Package: com.qh.ruyitakeaway.service.impl
- * @Version 1.0
+ * <p>
+ * 员工信息 服务实现类
+ * </p>
+ *
+ * @author QH
+ * @since 2022-09-08
  */
 @Service
 public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> implements EmployeeService {
+
 }

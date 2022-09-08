@@ -1,16 +1,16 @@
 package com.qh.ruyitakeaway.service;
 
-import com.qh.ruyitakeaway.entity.Employee;
+import com.qh.ruyitakeaway.entity.AddressBook;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- * 员工信息 服务类
+ * 地址管理 服务类
  * </p>
  *
  * @author QH
  * @since 2022-09-08
  */
-public interface EmployeeService extends IService<Employee> {
+public interface AddressBookService extends IService<AddressBook> {
 
 }

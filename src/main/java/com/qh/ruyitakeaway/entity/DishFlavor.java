@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 员工信息
+ * 菜品口味关系表
  * </p>
  *
  * @author QH
@@ -21,34 +21,22 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="Employee对象", description="员工信息")
-public class Employee implements Serializable {
+@ApiModel(value="DishFlavor对象", description="菜品口味关系表")
+public class DishFlavor implements Serializable {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "姓名")
+    @ApiModelProperty(value = "菜品")
+    private Long dishId;
+
+    @ApiModelProperty(value = "口味名称")
     private String name;
 
-    @ApiModelProperty(value = "用户名")
-    private String username;
-
-    @ApiModelProperty(value = "密码")
-    private String password;
-
-    @ApiModelProperty(value = "手机号")
-    private String phone;
-
-    @ApiModelProperty(value = "性别")
-    private String sex;
-
-    @ApiModelProperty(value = "身份证号")
-    private String idNumber;
-
-    @ApiModelProperty(value = "状态 0:禁用，1:正常")
-    private Integer status;
+    @ApiModelProperty(value = "口味数据list")
+    private String value;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
@@ -59,12 +47,13 @@ public class Employee implements Serializable {
     private Date updateTime;
 
     @ApiModelProperty(value = "创建人")
-    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     @ApiModelProperty(value = "修改人")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
+
+    @ApiModelProperty(value = "是否删除")
+    private Integer isDeleted;
 
 
 }

@@ -1,5 +1,6 @@
 package com.qh.ruyitakeaway.controller;
 
+
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.Employee;
@@ -10,15 +11,18 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Author QH
- * @Date 2022/9/8 19:21
- * @Package: com.qh.ruyitakeaway.controller
- * @Version 1.0
+ * <p>
+ * 员工信息 前端控制器
+ * </p>
+ *
+ * @author QH
+ * @since 2022-09-08
  */
 @Slf4j
 @RestController
@@ -59,3 +63,5 @@ public class EmployeeController {
         return R.success(emp);
     }
 }
+
+
