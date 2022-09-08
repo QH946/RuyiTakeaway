@@ -1,7 +1,7 @@
 package com.qh.ruyitakeaway.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,10 +41,10 @@ public class Orders implements Serializable {
     private Long addressBookId;
 
     @ApiModelProperty(value = "下单时间")
-    private Date orderTime;
+    private LocalDateTime orderTime;
 
     @ApiModelProperty(value = "结账时间")
-    private Date checkoutTime;
+    private LocalDateTime checkoutTime;
 
     @ApiModelProperty(value = "支付方式 1微信,2支付宝")
     private Integer payMethod;
