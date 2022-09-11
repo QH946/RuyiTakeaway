@@ -55,7 +55,7 @@ public class Employee implements Serializable {
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "更新时间")
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "创建人")

@@ -5,7 +5,7 @@ function trim (str) {  //删除左右两端的空格,自定义的trim()方法
 
 //获取url地址上面的参数
 function requestUrlParam(argname){
-  var url = location.href
+  var url = location.href //获取完整的请求url路径
   var arrStr = url.substring(url.indexOf("?")+1).split("&")
   for(var i =0;i<arrStr.length;i++)
   {

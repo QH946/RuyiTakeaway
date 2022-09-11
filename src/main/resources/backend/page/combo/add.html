@@ -479,7 +479,7 @@
           },
           // 获取套餐分类
           getDishTypeList() {
-            getCategoryList({ type: 2, page: 1, pageSize: 1000 }).then((res) => {
+            getCategoryList({ type: 2 }).then((res) => {
               if (res.code === 1) {
                 this.setMealList = res.data.map((obj) => ({ ...obj, idType: obj.id }))
               } else {

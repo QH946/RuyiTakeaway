@@ -1,6 +1,6 @@
 package com.qh.ruyitakeaway.common;
 
-import com.qh.ruyitakeaway.common.R;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;

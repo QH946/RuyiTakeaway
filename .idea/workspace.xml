@@ -5,15 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70438391-070f-4a95-ba5a-164bf0d4bbf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/config/JacksonObjectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/config/MybatisPlusConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d097f558-87d4-4a21-af30-aa67798e68d4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d097f558-87d4-4a21-af30-aa67798e68d4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/BaseContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/CustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/MyMetaObjecthandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/backend/page/demo/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/front/cartData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RuyiTakeaway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RuyiTakeaway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/RuyiTakeawayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/RuyiTakeawayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/AddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/DishFlavor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/DishFlavor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Setmeal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/Setmeal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/SetmealDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/entity/SetmealDish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/filter/LoginCheckFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/filter/LoginCheckFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/DishMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/SetmealMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/AddressBookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AddressBookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/DishFlavorMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/DishFlavorMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/OrderDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OrderDetailMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/OrdersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/SetmealDishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SetmealDishMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/ShoppingCartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ShoppingCartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/mapper/xml/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/api/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/api/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/page/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/page/category/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/page/combo/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/page/combo/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/page/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/page/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backend/page/member/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/page/member/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/api/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/api/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/api/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/front/page/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/page/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/api/category.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/api/combo.js" beforeDir="false" />
@@ -79,7 +117,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/front/api/order.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/DIN-Bold.otf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/DIN-Medium.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/PingFangSC-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/PingFangSC-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/front/fonts/PingFangSC-Semibold.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/PingFangSC-Regular.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/front/images/add.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/front/images/cart.png" beforeDir="false" />
@@ -188,11 +226,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/04_test/jr-ide-intellij-2022.3.2.zip",
+    "last_opened_file_path": "D:/06_LocalRepository/RuyiTakeaway/src/main/resources",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "com.zeroturnaround.javarebel.idea.plugin.settings.JRebelSettingsComponent",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "spring.configuration.checksum": "b01dbced9608d7b1888d95e4ee1172d8"
   },
   "keyToStringList": {
@@ -206,7 +244,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources" />
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\java\com\qh\ruyitakeaway" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources" />
     </key>
   </component>
@@ -246,6 +287,8 @@
       <workItem from="1662722706487" duration="36000" />
       <workItem from="1662722750352" duration="2191000" />
       <workItem from="1662724961679" duration="2939000" />
+      <workItem from="1662891217576" duration="8130000" />
+      <workItem from="1662907844106" duration="2729000" />
     </task>
     <servers />
   </component>

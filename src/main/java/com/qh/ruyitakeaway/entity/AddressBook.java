@@ -77,9 +77,11 @@ public class AddressBook implements Serializable {
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "创建人")
+    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     @ApiModelProperty(value = "修改人")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
 
     @ApiModelProperty(value = "是否删除")
