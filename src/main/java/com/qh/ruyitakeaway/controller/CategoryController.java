@@ -26,6 +26,7 @@ public class CategoryController {
 
     /**
      * 新增分类
+     *
      * @param category
      * @return
      */
@@ -38,6 +39,7 @@ public class CategoryController {
 
     /**
      * 分页查询
+     *
      * @param page
      * @param pageSize
      * @return
@@ -58,11 +60,12 @@ public class CategoryController {
 
     /**
      * 根据id删除分类
+     *
      * @param id
      * @return
      */
     @DeleteMapping
-    public R<String> delete(Long id) {
+    public R<String> delete(@RequestParam("ids") Long id) {
         log.info("删除分类，id为：{}", id);
         //categoryService.removeById(ids);
         categoryService.remove(id);
@@ -72,6 +75,7 @@ public class CategoryController {
 
     /**
      * 根据id修改分类信息
+     *
      * @param category
      * @return
      */

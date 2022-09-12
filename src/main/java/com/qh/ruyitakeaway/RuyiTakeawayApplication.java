@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @Slf4j
 @SpringBootApplication
 @MapperScan(basePackages = "com.qh.ruyitakeaway.mapper")
-@ServletComponentScan(basePackages = "com.qh.ruyitakeaway.filter")
+@ServletComponentScan
 public class RuyiTakeawayApplication {
 
     public static void main(String[] args) {

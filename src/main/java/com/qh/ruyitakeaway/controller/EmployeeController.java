@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.Employee;
 import com.qh.ruyitakeaway.service.EmployeeService;
-import com.qh.ruyitakeaway.service.impl.EmployeeServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;

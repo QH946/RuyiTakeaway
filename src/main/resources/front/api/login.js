@@ -4,7 +4,7 @@ function loginApi(data) {
       'method': 'post',
       data
     })
-}
+  }
 
 function sendMsgApi(data) {
     return $axios({
@@ -13,6 +13,7 @@ function sendMsgApi(data) {
         data
     })
 }
+
 
 function loginoutApi() {
   return $axios({
