@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author QH
  * @since 2022-09-08
  */
+@SuppressWarnings("all")
 @RestController
 @RequestMapping("/setmeal")
 public class SetmealController {

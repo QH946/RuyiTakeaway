@@ -19,3 +19,5 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: ASSIGN_ID
+ruyi:
+  path: D:\04_test\ruyi_resources\
