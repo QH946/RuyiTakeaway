@@ -47,7 +47,7 @@ public class DishController {
      * @param dishDto
      * @return
      */
-    @PostMapping("")
+    @PostMapping
     public R<String> save(@RequestBody DishDto dishDto) {
         log.info(dishDto.toString());
         dishService.saveWithFlavor(dishDto);
