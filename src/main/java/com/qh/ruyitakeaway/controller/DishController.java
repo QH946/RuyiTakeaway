@@ -7,6 +7,7 @@ import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.dto.DishDto;
 import com.qh.ruyitakeaway.entity.Category;
 import com.qh.ruyitakeaway.entity.Dish;
+import com.qh.ruyitakeaway.entity.Setmeal;
 import com.qh.ruyitakeaway.service.CategoryService;
 import com.qh.ruyitakeaway.service.DishFlavorService;
 import com.qh.ruyitakeaway.service.DishService;
@@ -129,13 +130,13 @@ public class DishController {
      */
     @PostMapping("status/{status}")
     public R<String> sale(@PathVariable int status, String[] ids) {
-        log.info("售卖状态：{},ids:{}",status,ids);
+        log.info("售卖状态：{},ids:{}", status, ids);
         for (String id : ids) {
             Dish dish = dishService.getById(id);
             dish.setStatus(status);
             dishService.updateById(dish);
         }
-        return R.success("修改售卖状态成功");
+        return R.success("修改成功");
     }
 
     /**
@@ -152,5 +153,19 @@ public class DishController {
         return R.success("删除成功");
     }
 
+    /**
+     * 根据条件查询对应的菜品数据
+     * @param dish
+     * @return
+     */
+    @GetMapping("/list")
+    public R<List<Dish>> list(Dish dish) {
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Dish::getStatus, 1);
+        queryWrapper.eq(dish.getCategoryId() != null, Dish::getCategoryId, dish.getCategoryId());
+        queryWrapper.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
+        List<Dish> list = dishService.list(queryWrapper);
+        return R.success(list);
+    }
 }
 

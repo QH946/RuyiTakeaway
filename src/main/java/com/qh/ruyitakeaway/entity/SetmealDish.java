@@ -2,9 +2,12 @@ package com.qh.ruyitakeaway.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -22,19 +25,19 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="SetmealDish对象", description="套餐菜品关系")
+@ApiModel(value = "SetmealDish对象", description = "套餐菜品关系")
 public class SetmealDish implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "主键")
     private Long id;
 
     @ApiModelProperty(value = "套餐id ")
-    private String setmealId;
+    private Long setmealId;
 
     @ApiModelProperty(value = "菜品id")
-    private String dishId;
+    private Long dishId;
 
     @ApiModelProperty(value = "菜品名称 （冗余字段）")
     private String name;
