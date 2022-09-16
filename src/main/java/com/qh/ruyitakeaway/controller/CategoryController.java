@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * 分类管理
  */
-@SuppressWarnings("all")
+
 @RestController
 @RequestMapping("/category")
 @Slf4j

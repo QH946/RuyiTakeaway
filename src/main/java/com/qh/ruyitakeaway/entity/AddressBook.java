@@ -36,7 +36,7 @@ public class AddressBook implements Serializable {
     private String consignee;
 
     @ApiModelProperty(value = "性别 0 女 1 男")
-    private Integer sex;
+    private String sex;
 
     @ApiModelProperty(value = "手机号")
     private String phone;
@@ -66,14 +66,14 @@ public class AddressBook implements Serializable {
     private String label;
 
     @ApiModelProperty(value = "默认 0 否 1是")
-    private Boolean isDefault;
+    private Integer isDefault;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "更新时间")
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "创建人")

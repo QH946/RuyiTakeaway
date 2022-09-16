@@ -26,12 +26,12 @@ import java.util.stream.Collectors;
  * @since 2022-09-08
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> implements SetmealService {
     @Autowired
     private SetmealDishService setmealDishService;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void saveWithDish(SetmealDto setmealDto) {
         //保存套餐的基本信息，操作setmeal，执行insert操作
         this.save(setmealDto);
@@ -45,6 +45,7 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void removeWithDish(List<Long> ids) {
         //select count(*) from setmeal where id in (1,2,3) and status = 1
         //查询套餐状态，确定是否可用删除
@@ -67,6 +68,7 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public SetmealDto getByIdWithDish(Long id) {
         //查询套餐基本信息
         Setmeal setmeal = this.getById(id);
@@ -81,6 +83,7 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updateWithDish(SetmealDto setmealDto) {
         //更新setmeal表基本信息
         this.updateById(setmealDto);

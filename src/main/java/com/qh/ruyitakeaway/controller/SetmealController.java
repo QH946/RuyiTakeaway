@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
  * @author QH
  * @since 2022-09-08
  */
-@SuppressWarnings("all")
+
 @RestController
 @RequestMapping("/setmeal")
 @Slf4j

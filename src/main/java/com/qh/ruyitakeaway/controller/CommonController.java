@@ -16,7 +16,7 @@ import java.util.UUID;
 /**
  * 文件上传和下载
  */
-@SuppressWarnings("all")
+
 @RestController
 @RequestMapping("/common")
 @Slf4j

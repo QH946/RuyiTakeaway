@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
  * @since 2022-09-08
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 /**
  * 涉及到多表操作，开启事务管理
  */
@@ -39,6 +38,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
      * @param dishDto
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void saveWithFlavor(DishDto dishDto) {
         //保存菜品信息到dish
         this.save(dishDto);
@@ -61,6 +61,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public DishDto getByIdWithFlavor(Long id) {
         //查询菜品基本信息，从dish表查询
         Dish dish = this.getById(id);
@@ -81,6 +82,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
      * @param dishDto
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updateWithFlavor(DishDto dishDto) {
         //更新dish表基本信息
         this.updateById(dishDto);

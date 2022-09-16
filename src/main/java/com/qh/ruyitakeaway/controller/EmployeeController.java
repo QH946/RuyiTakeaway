@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
  * @author QH
  * @since 2022-09-08
  */
-@SuppressWarnings("all")
+
 @Slf4j
 @RestController
 @RequestMapping("/employee")
