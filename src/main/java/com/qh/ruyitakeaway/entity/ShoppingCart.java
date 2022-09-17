@@ -55,7 +55,6 @@ public class ShoppingCart implements Serializable {
     private BigDecimal amount;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
 

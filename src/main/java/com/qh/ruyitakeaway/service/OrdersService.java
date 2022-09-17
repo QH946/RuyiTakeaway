@@ -12,5 +12,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-09-08
  */
 public interface OrdersService extends IService<Orders> {
-
+    /**
+     * 用户下单
+     * @param orders
+     */
+    public void submit(Orders orders);
 }
