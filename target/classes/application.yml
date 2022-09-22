@@ -14,6 +14,14 @@ spring:
       url: jdbc:mysql://localhost:3306/ruyi?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: redis
+    database: 0
+  cache:
+    redis:
+      time-to-live: 1800000 #设置缓存数据的过期时间
 mybatis-plus:
   configuration:
     #address_book->AddressBook

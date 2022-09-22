@@ -16,8 +16,11 @@ import java.util.List;
 @Data
 public class OrderDto extends Orders {
     /**
-     * 订单数量
+     * 订单对应的订单明细
      */
     private List<OrderDetail> orderDetails=new ArrayList<>();
+    /**
+     * 订单数量
+     */
     private int sumNum;
 }

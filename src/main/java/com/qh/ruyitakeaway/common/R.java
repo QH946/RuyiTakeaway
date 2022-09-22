@@ -2,6 +2,7 @@ package com.qh.ruyitakeaway.common;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  * @Version 1.0
  */
 @Data
-public class R<T> {
+public class R<T> implements Serializable {
     /**
      * 编码：1成功，0和其它数字为失败
      */

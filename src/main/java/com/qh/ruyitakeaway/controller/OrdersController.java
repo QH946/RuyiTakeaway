@@ -72,30 +72,25 @@ public class OrdersController {
 
         //对象拷贝
         BeanUtils.copyProperties(pageInfo, ordersDtoPage, "records");
-
         List<Orders> records = pageInfo.getRecords();
-
         List<OrderDto> list = records.stream().map((item) -> {
             OrderDto orderDto = new OrderDto();
-
             BeanUtils.copyProperties(item, orderDto);
             Long Id = item.getId();
-            //根据id查分类对象
+
+            //根据id查订单对象
             Orders orders = ordersService.getById(Id);
             String number = orders.getNumber();
             LambdaQueryWrapper<OrderDetail> lambdaQueryWrapper = new LambdaQueryWrapper<>();
             lambdaQueryWrapper.eq(OrderDetail::getOrderId, number);
             List<OrderDetail> orderDetailList = orderDetailService.list(lambdaQueryWrapper);
             int num = 0;
-
             for (OrderDetail l : orderDetailList) {
                 num += l.getNumber().intValue();
             }
-
             orderDto.setSumNum(num);
             return orderDto;
         }).collect(Collectors.toList());
-
         ordersDtoPage.setRecords(list);
 
         return R.success(ordersDtoPage);

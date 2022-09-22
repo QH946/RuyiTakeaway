@@ -47,7 +47,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
      *
      * @param orders
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void submit(Orders orders) {
         //获得当前用户id
         Long userId = BaseContext.getCurrentId();
@@ -70,9 +70,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         if (addressBook == null) {
             throw new CustomException("用户地址信息有误，不能下单");
         }
-
-        long orderId = IdWorker.getId();//订单号
-
+        //订单号
+        long orderId = IdWorker.getId();
+        //原子操作，保证多线程下操作正常
         AtomicInteger amount = new AtomicInteger(0);
 
         List<OrderDetail> orderDetails = shoppingCarts.stream().map((item) -> {
@@ -89,17 +89,18 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
             return orderDetail;
         }).collect(Collectors.toList());
 
-
         orders.setId(orderId);
         orders.setOrderTime(LocalDateTime.now());
         orders.setCheckoutTime(LocalDateTime.now());
         orders.setStatus(2);
-        orders.setAmount(new BigDecimal(amount.get()));//总金额
+        //总金额
+        orders.setAmount(new BigDecimal(amount.get()));
         orders.setUserId(userId);
         orders.setNumber(String.valueOf(orderId));
         orders.setUserName(user.getName());
         orders.setConsignee(addressBook.getConsignee());
         orders.setPhone(addressBook.getPhone());
+        //拼接地址
         orders.setAddress((addressBook.getProvinceName() == null ? "" : addressBook.getProvinceName())
                 + (addressBook.getCityName() == null ? "" : addressBook.getCityName())
                 + (addressBook.getDistrictName() == null ? "" : addressBook.getDistrictName())
