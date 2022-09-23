@@ -180,5 +180,21 @@
     <orderEntry type="library" name="Maven: org.apache.shardingsphere:sharding-transaction-core:4.0.0-RC1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.30" level="project" />
+    <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-spring-boot-starter:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-spring-boot-autoconfigure:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-spring:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-annotations:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-core:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.25.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-oas:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-models:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-bean-validators:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-core:1.5.22" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.11" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-boot-starter:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-data-rest:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-spring-ui:3.0.2" level="project" />
   </component>
 </module>

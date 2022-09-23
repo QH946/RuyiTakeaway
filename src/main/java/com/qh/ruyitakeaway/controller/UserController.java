@@ -7,6 +7,8 @@ import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.User;
 import com.qh.ruyitakeaway.service.UserService;
 import com.qh.ruyitakeaway.utils.ValidateCodeUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  * @author QH
  * @since 2022-09-08
  */
-
+@Api("移动端用户")
 @RestController
 @RequestMapping("/user")
 @Slf4j
@@ -47,6 +49,7 @@ public class UserController {
      * @param user
      * @return
      */
+    @ApiOperation("发送短信接口")
     @PostMapping("/sendMsg")
     public R<String> sendMsg(@RequestBody User user, HttpSession session) {
         //获取手机号
@@ -79,6 +82,7 @@ public class UserController {
      * @param session
      * @return
      */
+    @ApiOperation("用户登录接口")
     @PostMapping("/login")
     public R<User> login(@RequestBody Map map, HttpSession session) {
         log.info(map.toString());
@@ -127,6 +131,7 @@ public class UserController {
      * @param request
      * @return
      */
+    @ApiOperation("用户登出接口")
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request) {
         //清理Session中保存的当前用户登录的id

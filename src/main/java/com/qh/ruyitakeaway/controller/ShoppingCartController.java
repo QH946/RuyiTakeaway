@@ -6,6 +6,8 @@ import com.qh.ruyitakeaway.common.BaseContext;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.ShoppingCart;
 import com.qh.ruyitakeaway.service.ShoppingCartService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,7 @@ import java.util.List;
  * @author QH
  * @since 2022-09-08
  */
-
+@Api("购物车管理")
 @RestController
 @RequestMapping("/shoppingCart")
 @Slf4j
@@ -35,6 +37,7 @@ public class ShoppingCartController {
      * @param shoppingCart
      * @return
      */
+    @ApiOperation("添加购物车数据接口")
     @PostMapping("/add")
     public R<ShoppingCart> add(@RequestBody ShoppingCart shoppingCart) {
         log.info("购物车数据:{}", shoppingCart);
@@ -79,6 +82,7 @@ public class ShoppingCartController {
      *
      * @return
      */
+    @ApiOperation("获取购物车列表接口")
     @GetMapping("/list")
     public R<List<ShoppingCart>> list() {
         log.info("查看购物车...");
@@ -97,6 +101,7 @@ public class ShoppingCartController {
      * @param shoppingCart
      * @return
      */
+    @ApiOperation("减少菜品接口")
     @PostMapping("/sub")
     public R<ShoppingCart> sub(@RequestBody ShoppingCart shoppingCart){
         Long setmealId = shoppingCart.getSetmealId();
@@ -125,6 +130,7 @@ public class ShoppingCartController {
      *
      * @return
      */
+    @ApiOperation("清空购物车接口")
     @DeleteMapping("/clean")
     public R<String> clean() {
         //SQL:delete from shopping_cart where user_id = ?

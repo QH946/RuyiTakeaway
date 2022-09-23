@@ -1,6 +1,8 @@
 package com.qh.ruyitakeaway.controller;
 
 import com.qh.ruyitakeaway.common.R;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import java.util.UUID;
  * 文件上传和下载
  */
 
+@Api("通用管理")
 @RestController
 @RequestMapping("/common")
 @Slf4j
@@ -30,6 +33,7 @@ public class CommonController {
      * @param file
      * @return
      */
+    @ApiOperation(value = "文件上传接口")
     @PostMapping("/upload")
     public R<String> upload(MultipartFile file){
         //file是一个临时文件，需要转存到指定位置，否则本次请求完成后临时文件会删除
@@ -66,6 +70,7 @@ public class CommonController {
      * @param name
      * @param response
      */
+    @ApiOperation(value = "文件下载接口")
     @GetMapping("/download")
     public void download(String name, HttpServletResponse response){
 

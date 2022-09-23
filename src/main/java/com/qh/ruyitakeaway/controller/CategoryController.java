@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.Category;
 import com.qh.ruyitakeaway.service.CategoryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +21,7 @@ import java.util.List;
 /**
  * 分类管理
  */
-
+@Api("分类管理")
 @RestController
 @RequestMapping("/category")
 @Slf4j
@@ -33,6 +35,7 @@ public class CategoryController {
      * @param category
      * @return
      */
+    @ApiOperation(value = "新增分类接口")
     @PostMapping
     public R<String> save(@RequestBody Category category) {
         log.info("category:{}", category);
@@ -47,6 +50,7 @@ public class CategoryController {
      * @param pageSize
      * @return
      */
+    @ApiOperation(value = "获取分类分页数据接口")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize) {
         //分页构造器
@@ -67,6 +71,7 @@ public class CategoryController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "删除分类接口")
     @DeleteMapping
     public R<String> delete(@RequestParam("ids") Long id) {
         log.info("删除分类，id为：{}", id);
@@ -82,6 +87,7 @@ public class CategoryController {
      * @param category
      * @return
      */
+    @ApiOperation(value = "修改分类接口")
     @PutMapping
     public R<String> update(@RequestBody Category category) {
         log.info("修改分类信息：{}", category);
@@ -93,15 +99,17 @@ public class CategoryController {
 
     /**
      * 根据条件查询分类数据
+     *
      * @param category
      * @return
      */
+    @ApiOperation(value = "查询分类数据接口")
     @GetMapping("/list")
-    public R<List<Category>> list(Category category){
+    public R<List<Category>> list(Category category) {
         //条件构造器
-        LambdaQueryWrapper<Category> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        LambdaQueryWrapper<Category> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         //添加条件
-        lambdaQueryWrapper.eq(category.getType()!=null,Category::getType,category.getType());
+        lambdaQueryWrapper.eq(category.getType() != null, Category::getType, category.getType());
         //添加排序条件
         lambdaQueryWrapper.orderByAsc(Category::getSort).orderByAsc(Category::getUpdateTime);
         List<Category> list = categoryService.list(lambdaQueryWrapper);

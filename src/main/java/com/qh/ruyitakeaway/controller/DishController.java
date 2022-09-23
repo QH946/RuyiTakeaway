@@ -12,6 +12,8 @@ import com.qh.ruyitakeaway.entity.Setmeal;
 import com.qh.ruyitakeaway.service.CategoryService;
 import com.qh.ruyitakeaway.service.DishFlavorService;
 import com.qh.ruyitakeaway.service.DishService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,7 @@ import java.util.stream.Collectors;
  * @author QH
  * @since 2022-09-08
  */
-
+@Api("菜品管理")
 @RestController
 @RequestMapping("/dish")
 @Slf4j
@@ -54,6 +56,7 @@ public class DishController {
      * @param dishDto
      * @return
      */
+    @ApiOperation(value = "新增菜品接口")
     @PostMapping
     public R<String> save(@RequestBody DishDto dishDto) {
         log.info(dishDto.toString());
@@ -80,6 +83,7 @@ public class DishController {
      * @param name
      * @return
      */
+    @ApiOperation(value = "获取菜品信息接口")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize, String name) {
         //构造分页构造器对象
@@ -119,6 +123,7 @@ public class DishController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "通过id查询菜品的详细信息接口")
     @GetMapping("/{id}")
     public R<DishDto> get(@PathVariable Long id) {
         DishDto dishDto = dishService.getByIdWithFlavor(id);
@@ -131,6 +136,7 @@ public class DishController {
      * @param dishDto
      * @return
      */
+    @ApiOperation(value = "更新菜品信息接口")
     @PutMapping
     public R<String> update(@RequestBody DishDto dishDto) {
         log.info(dishDto.toString());
@@ -148,6 +154,7 @@ public class DishController {
      * @param ids
      * @return
      */
+    @ApiOperation(value = "修改菜品停用或者启用接口")
     @PostMapping("status/{status}")
     public R<String> sale(@PathVariable int status, String[] ids) {
         log.info("售卖状态：{},ids:{}", status, ids);
@@ -165,6 +172,7 @@ public class DishController {
      * @param ids
      * @return
      */
+    @ApiOperation(value = "删除菜品接口")
     @DeleteMapping
     public R<String> delete(String[] ids) {
         for (String id : ids) {
@@ -179,6 +187,7 @@ public class DishController {
      * @param dish
      * @return
      */
+    @ApiOperation("分类id查询菜品信息")
     @GetMapping("/list")
     public R<List<DishDto>> list(Dish dish) {
         List<DishDto> dishDtoList = null;
