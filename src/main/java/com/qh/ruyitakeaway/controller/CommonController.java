@@ -20,9 +20,9 @@ import java.util.UUID;
  */
 
 @Api("通用管理")
+@Slf4j
 @RestController
 @RequestMapping("/common")
-@Slf4j
 public class CommonController {
 
     @Value("${ruyi.path}")

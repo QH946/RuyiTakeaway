@@ -22,9 +22,9 @@ import java.util.List;
  * 分类管理
  */
 @Api("分类管理")
+@Slf4j
 @RestController
 @RequestMapping("/category")
-@Slf4j
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

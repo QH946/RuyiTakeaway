@@ -26,9 +26,9 @@ import java.util.List;
  * @since 2022-09-08
  */
 @Api("地址铺管理")
+@Slf4j
 @RestController
 @RequestMapping("/addressBook")
-@Slf4j
 public class AddressBookController {
 
     @Autowired

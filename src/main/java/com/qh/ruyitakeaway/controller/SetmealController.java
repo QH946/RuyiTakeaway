@@ -33,9 +33,9 @@ import java.util.stream.Collectors;
  * @since 2022-09-08
  */
 @Api(tags = "套餐相关接口")
+@Slf4j
 @RestController
 @RequestMapping("/setmeal")
-@Slf4j
 public class SetmealController {
     @Autowired
     private SetmealService setmealService;

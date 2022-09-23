@@ -33,9 +33,9 @@ import java.util.concurrent.TimeUnit;
  * @since 2022-09-08
  */
 @Api("移动端用户")
+@Slf4j
 @RestController
 @RequestMapping("/user")
-@Slf4j
 public class UserController {
 
     @Autowired

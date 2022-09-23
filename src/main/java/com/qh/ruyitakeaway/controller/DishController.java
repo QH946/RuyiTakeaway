@@ -35,9 +35,9 @@ import java.util.stream.Collectors;
  * @since 2022-09-08
  */
 @Api("菜品管理")
+@Slf4j
 @RestController
 @RequestMapping("/dish")
-@Slf4j
 public class DishController {
     @Autowired
     private DishService dishService;

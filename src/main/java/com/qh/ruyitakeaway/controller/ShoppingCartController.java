@@ -24,9 +24,9 @@ import java.util.List;
  * @since 2022-09-08
  */
 @Api("购物车管理")
+@Slf4j
 @RestController
 @RequestMapping("/shoppingCart")
-@Slf4j
 public class ShoppingCartController {
     @Autowired
     private ShoppingCartService shoppingCartService;

@@ -32,9 +32,9 @@ import java.util.stream.Collectors;
  * @since 2022-09-08
  */
 @Api("订单管理")
+@Slf4j
 @RestController
 @RequestMapping("/order")
-@Slf4j
 public class OrdersController {
     @Autowired
     private OrdersService ordersService;
