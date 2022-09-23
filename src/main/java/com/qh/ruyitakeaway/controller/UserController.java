@@ -108,6 +108,7 @@ public class UserController {
                 user = new User();
                 user.setPhone(phone);
                 user.setStatus(1);
+                user.setName("11");
                 userService.save(user);
             }
             session.setAttribute("user", user.getId());
