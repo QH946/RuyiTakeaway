@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages = "com.qh.ruyitakeaway.mapper")
 @ServletComponentScan
 @EnableTransactionManagement
-@EnableCaching //开启Spring Cache
+@EnableCaching
 public class RuyiTakeawayApplication {
 
     public static void main(String[] args) {

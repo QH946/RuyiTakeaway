@@ -9,37 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70438391-070f-4a95-ba5a-164bf0d4bbf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_6_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_4_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_4_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_4_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RuyiTakeaway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RuyiTakeaway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/RuyiTakeawayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/RuyiTakeawayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/common/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/impl/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/impl/OrdersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/api/category.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/api/combo.js" beforeDir="false" />
@@ -87,6 +58,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/vue/vue.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/common.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/fonts/element-icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/fonts/element-icons.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/backend/plugins/element-ui/fonts/element-icons.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/demo.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/demo_index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/iconfont.css" beforeDir="false" />
@@ -229,7 +201,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/02_Tools/MyBatis/mybatis-3-mapper.dtd",
+    "last_opened_file_path": "D:/06_LocalRepository/RuyiTakeaway/src/main/resources/backend/plugins/element-ui",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.0",
@@ -244,16 +216,19 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources\backend\plugins\element-ui" />
+      <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources\backend\styles" />
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\java\com\qh\ruyitakeaway\dto" />
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources\backend\page" />
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources" />
-      <recent name="D:\06_LocalRepository\RuyiTakeaway" />
-      <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\java\com\qh\ruyitakeaway" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources" />
@@ -356,6 +331,7 @@
       <workItem from="1663746053537" duration="59000" />
       <workItem from="1663751114563" duration="9000" />
       <workItem from="1663816363345" duration="8898000" />
+      <workItem from="1663905255682" duration="1696000" />
     </task>
     <servers />
   </component>
