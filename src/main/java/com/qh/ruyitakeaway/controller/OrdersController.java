@@ -10,6 +10,8 @@ import com.qh.ruyitakeaway.entity.OrderDetail;
 import com.qh.ruyitakeaway.entity.Orders;
 import com.qh.ruyitakeaway.service.OrderDetailService;
 import com.qh.ruyitakeaway.service.OrdersService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -29,16 +31,16 @@ import java.util.stream.Collectors;
  * @author QH
  * @since 2022-09-08
  */
-
+@Api("订单管理")
+@Slf4j
 @RestController
 @RequestMapping("/order")
-@Slf4j
 public class OrdersController {
     @Autowired
     private OrdersService ordersService;
     @Autowired
     private OrderDetailService orderDetailService;
-
+    @ApiOperation("用户下单接口")
     @PostMapping("/submit")
     public R<String> submit(@RequestBody Orders orders) {
         log.info("订单数据:{}", orders);
@@ -53,6 +55,7 @@ public class OrdersController {
      * @param pageSize
      * @return
      */
+    @ApiOperation("订单分页数据查询接口")
     @Transactional(rollbackFor = Exception.class)
     @GetMapping("/userPage")
     public R<Page> userPage(int page, int pageSize) {
@@ -102,6 +105,7 @@ public class OrdersController {
      * @param order1
      * @return
      */
+    @ApiOperation("再来一单接口")
     @Transactional(rollbackFor = Exception.class)
     @PostMapping("/again")
     public R<String> again(@RequestBody Orders order1) {
@@ -148,6 +152,7 @@ public class OrdersController {
      * @param endTime
      * @return
      */
+    @ApiOperation("后台查看订单明细接口")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize, String number, String beginTime, String endTime) {
         //构造分页构造器
@@ -193,6 +198,7 @@ public class OrdersController {
      * @param orders
      * @return
      */
+    @ApiOperation("外卖订单派送接口")
     @PutMapping
     public R<String> send(@RequestBody Orders orders){
         Long id = orders.getId();

@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.Employee;
 import com.qh.ruyitakeaway.service.EmployeeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
@@ -25,7 +27,7 @@ import java.time.LocalDateTime;
  * @author QH
  * @since 2022-09-08
  */
-
+@Api("员工管理")
 @Slf4j
 @RestController
 @RequestMapping("/employee")
@@ -41,6 +43,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
+    @ApiOperation(value = "员工登录接口")
     @PostMapping("/login")
     public R<Employee> login(HttpServletRequest request, @RequestBody Employee employee) {
 
@@ -79,6 +82,7 @@ public class EmployeeController {
      * @param request
      * @return
      */
+    @ApiOperation(value = "员工退出登录接口")
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request) {
         //清理Session中保存的当前登录员工的id
@@ -92,6 +96,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
+    @ApiOperation(value = "新增员工接口")
     @PostMapping
     public R<String> save(HttpServletRequest request, @RequestBody Employee employee) {
         log.info("新增员工，员工信息：{}", employee.toString());
@@ -121,6 +126,7 @@ public class EmployeeController {
      * @param name
      * @return
      */
+    @ApiOperation(value = "获取员工信息分页接口")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize, String name) {
         log.info("page = {},pageSize = {},name = {}", page, pageSize, name);
@@ -147,6 +153,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
+    @ApiOperation(value = "修改员工信息接口")
     @PutMapping
     public R<String> update(HttpServletRequest request, @RequestBody Employee employee) {
         log.info(employee.toString());
@@ -167,6 +174,7 @@ public class EmployeeController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "获取单个员工信息接口")
     @GetMapping("/{id}")
     public R<Employee> getById(@PathVariable Long id) {
         log.info("根据id查询员工信息...");

@@ -1,0 +1,54 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -10,14 +10,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="70438391-070f-4a95-ba5a-164bf0d4bbf6" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/AddressBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/AddressBookController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CategoryController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CommonController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/DishController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/OrdersController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/SetmealController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/ShoppingCartController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/UserController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -215,6 +208,7 @@
+       <workItem from="1663928894523" duration="62000" />
+       <workItem from="1663932199166" duration="1189000" />
+       <workItem from="1663933752931" duration="92000" />
++      <workItem from="1663935689497" duration="1638000" />
+     </task>
+     <servers />
+   </component>
+Index: src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java b/src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java
+--- a/src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java	
++++ b/src/main/java/com/qh/ruyitakeaway/dto/OrderDto.java	
+@@ -16,11 +16,11 @@
+ @Data
+ public class OrderDto extends Orders {
+     /**
+-     * 订单对应的订单明细
++     * 订单明细
+      */
+     private List<OrderDetail> orderDetails=new ArrayList<>();
+     /**
+-     * 订单数量
++     * 菜品总数
+      */
+     private int sumNum;
+ }

@@ -22,9 +22,9 @@ import java.io.IOException;
 /**
  * 检查用户是否已经完成登录
  */
-@WebFilter(filterName = "loginCheckFilter",urlPatterns = "/*")
+@WebFilter(filterName = "loginCheckFilter", urlPatterns = "/*")
 @Slf4j
-public class LoginCheckFilter implements Filter{
+public class LoginCheckFilter implements Filter {
     /**
      * 路径匹配器，支持通配符
      */
@@ -40,7 +40,7 @@ public class LoginCheckFilter implements Filter{
         // backend/index.html
         String requestURI = request.getRequestURI();
 
-        log.info("拦截到请求：{}",requestURI);
+        log.info("拦截到请求：{}", requestURI);
 
         //定义不需要处理的请求路径
         String[] urls = new String[]{
@@ -61,31 +61,31 @@ public class LoginCheckFilter implements Filter{
         boolean check = check(urls, requestURI);
 
         //3、如果不需要处理，则直接放行
-        if(check){
-            log.info("本次请求{}不需要处理",requestURI);
-            filterChain.doFilter(request,response);
+        if (check) {
+            log.info("本次请求{}不需要处理", requestURI);
+            filterChain.doFilter(request, response);
             return;
         }
 
         //4-1、判断登录状态，如果已登录，则直接放行
-        if(request.getSession().getAttribute("employee") != null){
-            log.info("用户已登录，用户id为：{}",request.getSession().getAttribute("employee"));
+        if (request.getSession().getAttribute("employee") != null) {
+            log.info("用户已登录，用户id为：{}", request.getSession().getAttribute("employee"));
 
             Long empId = (Long) request.getSession().getAttribute("employee");
             BaseContext.setCurrentId(empId);
 
-            filterChain.doFilter(request,response);
+            filterChain.doFilter(request, response);
             return;
         }
 
         //4-2、判断登录状态，如果已登录，则直接放行
-        if(request.getSession().getAttribute("user") != null){
-            log.info("用户已登录，用户id为：{}",request.getSession().getAttribute("user"));
+        if (request.getSession().getAttribute("user") != null) {
+            log.info("用户已登录，用户id为：{}", request.getSession().getAttribute("user"));
 
             Long userId = (Long) request.getSession().getAttribute("user");
             BaseContext.setCurrentId(userId);
 
-            filterChain.doFilter(request,response);
+            filterChain.doFilter(request, response);
             return;
         }
 
@@ -98,18 +98,21 @@ public class LoginCheckFilter implements Filter{
 
     /**
      * 路径匹配，检查本次请求是否需要放行
+     *
      * @param urls
      * @param requestURI
      * @return
      */
-    public boolean check(String[] urls,String requestURI){
+    public boolean check(String[] urls, String requestURI) {
         for (String url : urls) {
             boolean match = PATH_MATCHER.match(url, requestURI);
-            if(match){
+            if (match) {
                 return true;
             }
         }
         return false;
     }
 }
+
+
 
