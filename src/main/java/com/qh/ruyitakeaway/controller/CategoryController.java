@@ -1,7 +1,6 @@
 package com.qh.ruyitakeaway.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.Category;
@@ -44,7 +43,7 @@ public class CategoryController {
     }
 
     /**
-     * 分页查询
+     * 分页查询套餐及菜品分类
      *
      * @param page
      * @param pageSize
@@ -53,15 +52,7 @@ public class CategoryController {
     @ApiOperation(value = "获取分类分页数据接口")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize) {
-        //分页构造器
-        Page<Category> pageInfo = new Page<>(page, pageSize);
-        //条件构造器
-        LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
-        //添加排序条件，根据sort进行排序
-        queryWrapper.orderByAsc(Category::getSort);
-
-        //分页查询
-        categoryService.page(pageInfo, queryWrapper);
+        Page pageInfo = categoryService.getPage(page, pageSize);
         return R.success(pageInfo);
     }
 
@@ -75,7 +66,7 @@ public class CategoryController {
     @DeleteMapping
     public R<String> delete(@RequestParam("ids") Long id) {
         log.info("删除分类，id为：{}", id);
-        //categoryService.removeById(ids);
+
         categoryService.remove(id);
 
         return R.success("分类信息删除成功");
@@ -106,13 +97,7 @@ public class CategoryController {
     @ApiOperation(value = "查询分类数据接口")
     @GetMapping("/list")
     public R<List<Category>> list(Category category) {
-        //条件构造器
-        LambdaQueryWrapper<Category> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        //添加条件
-        lambdaQueryWrapper.eq(category.getType() != null, Category::getType, category.getType());
-        //添加排序条件
-        lambdaQueryWrapper.orderByAsc(Category::getSort).orderByAsc(Category::getUpdateTime);
-        List<Category> list = categoryService.list(lambdaQueryWrapper);
+        List<Category> list = categoryService.list(category);
         return R.success(list);
     }
 }
