@@ -1,14 +1,20 @@
 package com.qh.ruyitakeaway.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qh.ruyitakeaway.common.CustomException;
+import com.qh.ruyitakeaway.dto.DishDto;
 import com.qh.ruyitakeaway.dto.SetmealDto;
+import com.qh.ruyitakeaway.entity.Category;
+import com.qh.ruyitakeaway.entity.Dish;
 import com.qh.ruyitakeaway.entity.Setmeal;
 import com.qh.ruyitakeaway.entity.SetmealDish;
 import com.qh.ruyitakeaway.mapper.SetmealMapper;
+import com.qh.ruyitakeaway.service.CategoryService;
+import com.qh.ruyitakeaway.service.DishService;
 import com.qh.ruyitakeaway.service.SetmealDishService;
 import com.qh.ruyitakeaway.service.SetmealService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +34,19 @@ import java.util.stream.Collectors;
 @Service
 public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> implements SetmealService {
     @Autowired
+    private SetmealService setmealService;
+    @Autowired
     private SetmealDishService setmealDishService;
+    @Autowired
+    private CategoryService categoryService;
+    @Autowired
+    private DishService dishService;
 
+    /**
+     * 新增套餐并保存套餐与菜品的关联关系
+     *
+     * @param setmealDto setmeal dto
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void saveWithDish(SetmealDto setmealDto) {
@@ -67,6 +84,12 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
         setmealDishService.remove(lambdaQueryWrapper);
     }
 
+    /**
+     * 根据id查询套餐信息
+     *
+     * @param id id
+     * @return {@link SetmealDto}
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public SetmealDto getByIdWithDish(Long id) {
@@ -82,6 +105,11 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
         return setmealDto;
     }
 
+    /**
+     * 修改套餐
+     *
+     * @param setmealDto setmeal dto
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updateWithDish(SetmealDto setmealDto) {
@@ -98,5 +126,108 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
             return item;
         }).collect(Collectors.toList());
         setmealDishService.saveBatch(setmealDishes);
+    }
+
+    /**
+     * 套餐分页查询
+     *
+     * @param page     页面
+     * @param pageSize 页面大小
+     * @param name     名字
+     * @return {@link Page}
+     */
+    @Override
+    public Page getPage(int page, int pageSize, String name) {
+        //分页构造器对象
+        Page<Setmeal> pageInfo = new Page<>(page, pageSize);
+        Page<SetmealDto> dtoPage = new Page<>();
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        //添加查询条件，根据name进行like模糊查询
+        queryWrapper.like(name != null, Setmeal::getName, name);
+        //添加排序条件，根据更新时间降序排列
+        queryWrapper.orderByDesc(Setmeal::getUpdateTime);
+        setmealService.page(pageInfo, queryWrapper);
+
+        //对象拷贝
+        BeanUtils.copyProperties(pageInfo, dtoPage, "records");
+        List<Setmeal> records = pageInfo.getRecords();
+
+        List<SetmealDto> list = records.stream().map((item) -> {
+            SetmealDto setmealDto = new SetmealDto();
+            //对象拷贝
+            BeanUtils.copyProperties(item, setmealDto);
+            //分类id
+            Long categoryId = item.getCategoryId();
+            //根据分类id查询分类对象
+            Category category = categoryService.getById(categoryId);
+            if (category != null) {
+                //分类名称
+                String categoryName = category.getName();
+                setmealDto.setCategoryName(categoryName);
+            }
+            return setmealDto;
+        }).collect(Collectors.toList());
+
+        dtoPage.setRecords(list);
+        return dtoPage;
+    }
+
+    /**
+     * 修改套餐售卖状态
+     *
+     * @param status 状态
+     * @param ids    id
+     */
+    @Override
+    public void updateSale(int status, String[] ids) {
+        for (String id : ids) {
+            Setmeal setmeal = setmealService.getById(id);
+            setmeal.setStatus(status);
+            setmealService.updateById(setmeal);
+        }
+    }
+
+    /**
+     * 根据条件查询套餐数据
+     *
+     * @param setmeal setmeal
+     * @return {@link List}<{@link Setmeal}>
+     */
+    @Override
+    public List<Setmeal> getList(Setmeal setmeal) {
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(setmeal.getCategoryId() != null, Setmeal::getCategoryId, setmeal.getCategoryId());
+        queryWrapper.eq(setmeal.getStatus() != null, Setmeal::getStatus, setmeal.getStatus());
+        queryWrapper.orderByDesc(Setmeal::getUpdateTime);
+        List<Setmeal> list = setmealService.list(queryWrapper);
+        return list;
+    }
+
+    /**
+     * 移动端点击套餐图片查看套餐具体内容
+     *
+     * @param SetmealId setmeal id
+     * @return {@link List}<{@link DishDto}>
+     */
+    @Override
+    public List<DishDto> getDishById(Long SetmealId) {
+        LambdaQueryWrapper<SetmealDish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SetmealDish::getSetmealId, SetmealId);
+        //获取套餐里面的所有菜品  这个就是SetmealDish表里面的数据
+        List<SetmealDish> list = setmealDishService.list(queryWrapper);
+
+        List<DishDto> dishDtos = list.stream().map((setmealDish) -> {
+            DishDto dishDto = new DishDto();
+            //其实这个BeanUtils的拷贝是浅拷贝，这里要注意一下
+            BeanUtils.copyProperties(setmealDish, dishDto);
+            //这里是为了把套餐中的菜品的基本信息填充到dto中，比如菜品描述，菜品图片等菜品的基本信息
+            Long dishId = setmealDish.getDishId();
+            Dish dish = dishService.getById(dishId);
+            BeanUtils.copyProperties(dish, dishDto);
+
+            return dishDto;
+        }).collect(Collectors.toList());
+
+        return dishDtos;
     }
 }

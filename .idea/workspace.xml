@@ -10,13 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70438391-070f-4a95-ba5a-164bf0d4bbf6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/AddressBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/AddressBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/CommonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/ShoppingCartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +26,13 @@
       <list>
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Windows" />
+      </map>
     </option>
   </component>
   <component name="InvalidFacetManager">
@@ -215,6 +215,7 @@
       <workItem from="1663928894523" duration="62000" />
       <workItem from="1663932199166" duration="1189000" />
       <workItem from="1663933752931" duration="92000" />
+      <workItem from="1664115187140" duration="65000" />
     </task>
     <servers />
   </component>
@@ -226,7 +227,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
