@@ -1,0 +1,3790 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "如意外卖接口文档",
+    "version": "1.0",
+    "title": "如意外卖"
+  },
+  "host": "localhost:9001",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "address-book-controller",
+      "description": "Address Book Controller"
+    },
+    {
+      "name": "category-controller",
+      "description": "Category Controller"
+    },
+    {
+      "name": "common-controller",
+      "description": "Common Controller"
+    },
+    {
+      "name": "dish-controller",
+      "description": "Dish Controller"
+    },
+    {
+      "name": "employee-controller",
+      "description": "Employee Controller"
+    },
+    {
+      "name": "orders-controller",
+      "description": "Orders Controller"
+    },
+    {
+      "name": "shopping-cart-controller",
+      "description": "Shopping Cart Controller"
+    },
+    {
+      "name": "user-controller",
+      "description": "User Controller"
+    },
+    {
+      "name": "套餐相关接口",
+      "description": "Setmeal Controller"
+    }
+  ],
+  "paths": {
+    "/addressBook": {
+      "post": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "添加地址信息",
+        "operationId": "saveUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "addressBook",
+            "description": "addressBook",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressBook对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«AddressBook对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "修改地址信息",
+        "operationId": "updateUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "addressBook",
+            "description": "addressBook",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressBook对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "删除地址",
+        "operationId": "deleteUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/addressBook/default": {
+      "get": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "获取默认地址",
+        "operationId": "getDefaultUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«AddressBook对象»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "设置默认地址",
+        "operationId": "setDefaultUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "addressBook",
+            "description": "addressBook",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressBook对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«AddressBook对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/addressBook/list": {
+      "get": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "获取指定地址",
+        "operationId": "listUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "cityCode",
+            "in": "query",
+            "description": "市级区划编号",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cityName",
+            "in": "query",
+            "description": "市级名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consignee",
+            "in": "query",
+            "description": "收货人",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "description": "创建时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "description": "创建人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "detail",
+            "in": "query",
+            "description": "详细地址",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "districtCode",
+            "in": "query",
+            "description": "区级区划编号",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "districtName",
+            "in": "query",
+            "description": "区级名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "主键",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "isDefault",
+            "in": "query",
+            "description": "默认 0 否 1是",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "是否删除",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "description": "标签",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "手机号",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "provinceCode",
+            "in": "query",
+            "description": "省级区划编号",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "provinceName",
+            "in": "query",
+            "description": "省级名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sex",
+            "in": "query",
+            "description": "性别 0 女 1 男",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "description": "更新时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "description": "修改人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "用户id",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«AddressBook对象»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/addressBook/{id}": {
+      "get": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "获取地址列表",
+        "operationId": "getUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«object»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/category": {
+      "post": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "新增分类接口",
+        "operationId": "saveUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "category",
+            "description": "category",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "修改分类接口",
+        "operationId": "updateUsingPUT_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "category",
+            "description": "category",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "删除分类接口",
+        "operationId": "deleteUsingDELETE_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/category/list": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "查询分类数据接口",
+        "operationId": "listUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "createTime",
+            "in": "query",
+            "description": "创建时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "description": "创建人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "主键",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "分类名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "顺序",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "类型   1 菜品分类 2 套餐分类",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "description": "更新时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "description": "修改人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«Category对象»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/category/page": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "获取分类分页数据接口",
+        "operationId": "pageUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/common/download": {
+      "get": {
+        "tags": [
+          "common-controller"
+        ],
+        "summary": "文件下载接口",
+        "operationId": "downloadUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/common/upload": {
+      "post": {
+        "tags": [
+          "common-controller"
+        ],
+        "summary": "文件上传接口",
+        "operationId": "uploadUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "file",
+            "description": "file",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish": {
+      "post": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "新增菜品接口",
+        "operationId": "saveUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dishDto",
+            "description": "dishDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Dish对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "更新菜品信息接口",
+        "operationId": "updateUsingPUT_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dishDto",
+            "description": "dishDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Dish对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "删除菜品接口",
+        "operationId": "deleteUsingDELETE_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/dish/list": {
+      "get": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "分类id查询菜品信息",
+        "operationId": "listUsingGET_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "菜品分类id",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "商品码",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "description": "创建时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "description": "创建人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "描述信息",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "主键",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "description": "图片",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "是否删除",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "菜品名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "description": "菜品价格",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "顺序",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "0 停售 1 起售",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "description": "更新时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "description": "修改人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«Dish对象»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish/page": {
+      "get": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "获取菜品信息接口",
+        "operationId": "pageUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish/status/{status}": {
+      "post": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "修改菜品停用或者启用接口",
+        "operationId": "saleUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "status",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish/{id}": {
+      "get": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "通过id查询菜品的详细信息接口",
+        "operationId": "getUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Dish对象»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee": {
+      "post": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "新增员工接口",
+        "operationId": "saveUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "employee",
+            "description": "employee",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "修改员工信息接口",
+        "operationId": "updateUsingPUT_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "employee",
+            "description": "employee",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/login": {
+      "post": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "员工登录接口",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "employee",
+            "description": "employee",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Employee对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/logout": {
+      "post": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "员工退出登录接口",
+        "operationId": "logoutUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/page": {
+      "get": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "获取员工信息分页接口",
+        "operationId": "pageUsingGET_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/{id}": {
+      "get": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "获取单个员工信息接口",
+        "operationId": "getByIdUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Employee对象»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/order": {
+      "put": {
+        "tags": [
+          "orders-controller"
+        ],
+        "summary": "外卖订单派送接口",
+        "operationId": "sendUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orders",
+            "description": "orders",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Orders对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/order/again": {
+      "post": {
+        "tags": [
+          "orders-controller"
+        ],
+        "summary": "再来一单接口",
+        "operationId": "againUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "order1",
+            "description": "order1",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Orders对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/order/page": {
+      "get": {
+        "tags": [
+          "orders-controller"
+        ],
+        "summary": "后台查看订单明细接口",
+        "operationId": "pageUsingGET_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "beginTime",
+            "in": "query",
+            "description": "beginTime",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "description": "endTime",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "description": "number",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/order/submit": {
+      "post": {
+        "tags": [
+          "orders-controller"
+        ],
+        "summary": "用户下单接口",
+        "operationId": "submitUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orders",
+            "description": "orders",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Orders对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/order/userPage": {
+      "get": {
+        "tags": [
+          "orders-controller"
+        ],
+        "summary": "订单分页数据查询接口",
+        "operationId": "userPageUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal": {
+      "post": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "新增套餐接口",
+        "operationId": "saveUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "setmealDto",
+            "description": "setmealDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Setmeal对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "修改套餐查询接口",
+        "operationId": "updateUsingPUT_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "setmealDto",
+            "description": "setmealDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Setmeal对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "套餐删除接口",
+        "operationId": "deleteUsingDELETE_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/setmeal/dish/{id}": {
+      "get": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "dish",
+        "operationId": "dishUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«Dish对象»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/list": {
+      "get": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "根据条件查询套餐数据接口",
+        "operationId": "listUsingGET_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "菜品分类id",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "编码",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "description": "创建时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "description": "创建人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "描述信息",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "主键",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "description": "图片",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "是否删除",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "套餐名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "description": "套餐价格",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "状态 0:停用 1:启用",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "description": "更新时间",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "description": "修改人",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«Setmeal对象»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/page": {
+      "get": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "套餐分页查询接口",
+        "operationId": "pageUsingGET_4",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "套餐名称",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "页码",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "每页记录数",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/status/{status}": {
+      "post": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "修改售卖状态接口",
+        "operationId": "saleUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "status",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/{id}": {
+      "get": {
+        "tags": [
+          "套餐相关接口"
+        ],
+        "summary": "套餐条件查询接口",
+        "operationId": "getByIdUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Setmeal对象»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/shoppingCart/add": {
+      "post": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "添加购物车数据接口",
+        "operationId": "addUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "shoppingCart",
+            "description": "shoppingCart",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShoppingCart对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«ShoppingCart对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/shoppingCart/clean": {
+      "delete": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "清空购物车接口",
+        "operationId": "cleanUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/shoppingCart/list": {
+      "get": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "获取购物车列表接口",
+        "operationId": "listUsingGET_4",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«ShoppingCart对象»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/shoppingCart/sub": {
+      "post": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "减少菜品接口",
+        "operationId": "subUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "shoppingCart",
+            "description": "shoppingCart",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShoppingCart对象"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«ShoppingCart对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "用户登录接口",
+        "operationId": "loginUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "creationTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastAccessedTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "map",
+            "description": "map",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "maxInactiveInterval",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "new",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "valueNames",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«User对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "用户登出接口",
+        "operationId": "logoutUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/sendMsg": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "发送短信接口",
+        "operationId": "sendMsgUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "creationTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastAccessedTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "maxInactiveInterval",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "new",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "user",
+            "description": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User对象"
+            }
+          },
+          {
+            "name": "valueNames",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«User对象»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddressBook对象": {
+      "type": "object",
+      "properties": {
+        "cityCode": {
+          "type": "string",
+          "description": "市级区划编号",
+          "refType": null
+        },
+        "cityName": {
+          "type": "string",
+          "description": "市级名称",
+          "refType": null
+        },
+        "consignee": {
+          "type": "string",
+          "description": "收货人",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "detail": {
+          "type": "string",
+          "description": "详细地址",
+          "refType": null
+        },
+        "districtCode": {
+          "type": "string",
+          "description": "区级区划编号",
+          "refType": null
+        },
+        "districtName": {
+          "type": "string",
+          "description": "区级名称",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "isDefault": {
+          "type": "integer",
+          "format": "int32",
+          "description": "默认 0 否 1是",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除",
+          "refType": null
+        },
+        "label": {
+          "type": "string",
+          "description": "标签",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "description": "手机号",
+          "refType": null
+        },
+        "provinceCode": {
+          "type": "string",
+          "description": "省级区划编号",
+          "refType": null
+        },
+        "provinceName": {
+          "type": "string",
+          "description": "省级名称",
+          "refType": null
+        },
+        "sex": {
+          "type": "string",
+          "description": "性别 0 女 1 男",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户id",
+          "refType": null
+        }
+      },
+      "title": "AddressBook对象",
+      "description": "地址管理"
+    },
+    "Category对象": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "分类名称",
+          "refType": null
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "顺序",
+          "refType": null
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "类型   1 菜品分类 2 套餐分类",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        }
+      },
+      "title": "Category对象",
+      "description": "菜品及套餐分类"
+    },
+    "DishFlavor对象": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "dishId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "菜品",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "口味名称",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        },
+        "value": {
+          "type": "string",
+          "description": "口味数据list",
+          "refType": null
+        }
+      },
+      "title": "DishFlavor对象",
+      "description": "菜品口味关系表"
+    },
+    "Dish对象": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "菜品分类id",
+          "refType": null
+        },
+        "categoryName": {
+          "type": "string",
+          "refType": null
+        },
+        "code": {
+          "type": "string",
+          "description": "商品码",
+          "refType": null
+        },
+        "copies": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "description": {
+          "type": "string",
+          "description": "描述信息",
+          "refType": null
+        },
+        "flavors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DishFlavor对象"
+          },
+          "refType": "DishFlavor对象"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "description": "图片",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "菜品名称",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "description": "菜品价格",
+          "refType": null
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "顺序",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "0 停售 1 起售",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        }
+      },
+      "title": "Dish对象",
+      "description": "菜品管理"
+    },
+    "Employee对象": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "idNumber": {
+          "type": "string",
+          "description": "身份证号",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "姓名",
+          "refType": null
+        },
+        "password": {
+          "type": "string",
+          "description": "密码",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "description": "手机号",
+          "refType": null
+        },
+        "sex": {
+          "type": "string",
+          "description": "性别",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态 0:禁用，1:正常",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        },
+        "username": {
+          "type": "string",
+          "description": "用户名",
+          "refType": null
+        }
+      },
+      "title": "Employee对象",
+      "description": "员工信息"
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "asc": {
+          "type": "boolean",
+          "refType": null
+        },
+        "column": {
+          "type": "string",
+          "refType": null
+        }
+      },
+      "title": "OrderItem"
+    },
+    "Orders对象": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "refType": null
+        },
+        "addressBookId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "地址id",
+          "refType": null
+        },
+        "amount": {
+          "type": "number",
+          "description": "实收金额",
+          "refType": null
+        },
+        "checkoutTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "结账时间",
+          "refType": null
+        },
+        "consignee": {
+          "type": "string",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "number": {
+          "type": "string",
+          "description": "订单号",
+          "refType": null
+        },
+        "orderTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "下单时间",
+          "refType": null
+        },
+        "payMethod": {
+          "type": "integer",
+          "format": "int32",
+          "description": "支付方式 1微信,2支付宝",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "refType": null
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "订单状态 1待付款，2待派送，3已派送，4已完成，5已取消",
+          "refType": null
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "下单用户",
+          "refType": null
+        },
+        "userName": {
+          "type": "string",
+          "refType": null
+        }
+      },
+      "title": "Orders对象",
+      "description": "订单表"
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "countId": {
+          "type": "string",
+          "refType": null
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "maxLimit": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "optimizeCountSql": {
+          "type": "boolean",
+          "refType": null
+        },
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          },
+          "refType": "OrderItem"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "refType": "object"
+        },
+        "searchCount": {
+          "type": "boolean",
+          "refType": null
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "Page"
+    },
+    "R«AddressBook对象»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/AddressBook对象"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«AddressBook对象»"
+    },
+    "R«Dish对象»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/Dish对象"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«Dish对象»"
+    },
+    "R«Employee对象»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/Employee对象"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«Employee对象»"
+    },
+    "R«List«AddressBook对象»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressBook对象"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«AddressBook对象»»"
+    },
+    "R«List«Category对象»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Category对象"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«Category对象»»"
+    },
+    "R«List«Dish对象»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Dish对象"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«Dish对象»»"
+    },
+    "R«List«Setmeal对象»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Setmeal对象0"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«Setmeal对象»»"
+    },
+    "R«List«ShoppingCart对象»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShoppingCart对象"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«ShoppingCart对象»»"
+    },
+    "R«Page»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/Page"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«Page»"
+    },
+    "R«Setmeal对象»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/Setmeal对象"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«Setmeal对象»"
+    },
+    "R«ShoppingCart对象»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/ShoppingCart对象"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«ShoppingCart对象»"
+    },
+    "R«User对象»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/User对象"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«User对象»"
+    },
+    "R«object»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "object"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«object»"
+    },
+    "R«string»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "string"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«string»"
+    },
+    "SetmealDish对象": {
+      "type": "object",
+      "properties": {
+        "copies": {
+          "type": "integer",
+          "format": "int32",
+          "description": "份数",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "dishId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "菜品id",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "菜品名称 （冗余字段）",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "description": "菜品原价（冗余字段）",
+          "refType": null
+        },
+        "setmealId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "套餐id ",
+          "refType": null
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "description": "排序",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        }
+      },
+      "title": "SetmealDish对象",
+      "description": "套餐菜品关系"
+    },
+    "Setmeal对象": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "菜品分类id",
+          "refType": null
+        },
+        "categoryName": {
+          "type": "string",
+          "refType": null
+        },
+        "code": {
+          "type": "string",
+          "description": "编码",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "description": {
+          "type": "string",
+          "description": "描述信息",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "description": "图片",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "套餐名称",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "description": "套餐价格",
+          "refType": null
+        },
+        "setmealDishes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SetmealDish对象"
+          },
+          "refType": "SetmealDish对象"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态 0:停用 1:启用",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        }
+      },
+      "title": "Setmeal对象",
+      "description": "套餐"
+    },
+    "Setmeal对象0": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "菜品分类id",
+          "refType": null
+        },
+        "code": {
+          "type": "string",
+          "description": "编码",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建人",
+          "refType": null
+        },
+        "description": {
+          "type": "string",
+          "description": "描述信息",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "description": "图片",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否删除",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "套餐名称",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "description": "套餐价格",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态 0:停用 1:启用",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "description": "修改人",
+          "refType": null
+        }
+      },
+      "title": "Setmeal对象0",
+      "description": "套餐"
+    },
+    "ShoppingCart对象": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "金额",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间",
+          "refType": null
+        },
+        "dishFlavor": {
+          "type": "string",
+          "description": "口味",
+          "refType": null
+        },
+        "dishId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "菜品id",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "description": "图片",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "名称",
+          "refType": null
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数量",
+          "refType": null
+        },
+        "setmealId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "套餐id",
+          "refType": null
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        }
+      },
+      "title": "ShoppingCart对象",
+      "description": "购物车"
+    },
+    "User对象": {
+      "type": "object",
+      "properties": {
+        "avatar": {
+          "type": "string",
+          "description": "头像",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "主键",
+          "refType": null
+        },
+        "idNumber": {
+          "type": "string",
+          "description": "身份证号",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "description": "姓名",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "description": "手机号",
+          "refType": null
+        },
+        "sex": {
+          "type": "string",
+          "description": "性别",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态 0:禁用，1:正常",
+          "refType": null
+        }
+      },
+      "title": "User对象",
+      "description": "用户信息"
+    }
+  }
+}
