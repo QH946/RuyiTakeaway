@@ -1,27 +1,26 @@
-package com.qh.ruyitakeaway.common;
+package com.qh.ruyitakeaway.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.qh.ruyitakeaway.common.BaseContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-/**
- * @Author QH
- * @Date 2022/9/11 18:28
- * @Package: com.qh.ruyitakeaway.common
- * @Version 1.0
- */
 
 /**
- * 自定义元数据对象处理器
+ * MyBatisPlus插入和更新时自动填充字段
+ *
+ * @author qh
+ * @date 2022/10/09 10:50:04
  */
 @Component
 @Slf4j
 public class MyMetaObjecthandler implements MetaObjectHandler {
     /**
      * 插入操作，自动填充
+     *
      * @param metaObject
      */
     @Override
@@ -29,13 +28,14 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
         log.info("公共字段自动填充[insert]...");
         log.info(metaObject.toString());
         metaObject.setValue("createTime", LocalDateTime.now());
-        metaObject.setValue("updateTime",LocalDateTime.now());
-        metaObject.setValue("createUser",BaseContext.getCurrentId());
-        metaObject.setValue("updateUser",BaseContext.getCurrentId());
+        metaObject.setValue("updateTime", LocalDateTime.now());
+        metaObject.setValue("createUser", BaseContext.getCurrentId());
+        metaObject.setValue("updateUser", BaseContext.getCurrentId());
     }
 
     /**
      * 更新操作，自动填充
+     *
      * @param metaObject
      */
     @Override
@@ -44,10 +44,10 @@ public class MyMetaObjecthandler implements MetaObjectHandler {
         log.info(metaObject.toString());
 
         long id = Thread.currentThread().getId();
-        log.info("线程id为：{}",id);
+        log.info("线程id为：{}", id);
 
-        metaObject.setValue("updateTime",LocalDateTime.now());
-        metaObject.setValue("updateUser",BaseContext.getCurrentId());
+        metaObject.setValue("updateTime", LocalDateTime.now());
+        metaObject.setValue("updateUser", BaseContext.getCurrentId());
     }
 }
 

@@ -6,6 +6,12 @@ import com.qh.ruyitakeaway.entity.SetmealDish;
 import lombok.Data;
 import java.util.List;
 
+/**
+ * 套餐dto
+ *
+ * @author qh
+ * @date 2022/10/09 11:35:44
+ */
 @Data
 public class SetmealDto extends Setmeal {
     /**

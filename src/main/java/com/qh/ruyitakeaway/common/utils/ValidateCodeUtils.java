@@ -1,4 +1,4 @@
-package com.qh.ruyitakeaway.utils;
+package com.qh.ruyitakeaway.common.utils;
 
 /**
  * @author 清欢

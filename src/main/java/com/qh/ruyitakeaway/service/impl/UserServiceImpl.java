@@ -2,11 +2,12 @@ package com.qh.ruyitakeaway.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.qh.ruyitakeaway.common.CustomException;
+import com.qh.ruyitakeaway.common.R;
+import com.qh.ruyitakeaway.common.exception.CustomException;
+import com.qh.ruyitakeaway.common.utils.ValidateCodeUtils;
 import com.qh.ruyitakeaway.entity.User;
 import com.qh.ruyitakeaway.mapper.UserMapper;
 import com.qh.ruyitakeaway.service.UserService;
-import com.qh.ruyitakeaway.utils.ValidateCodeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * @return {@link User}
      */
     @Override
-    public User sendMessage(User user, HttpSession session) {
+    public R<String> sendMessage(User user, HttpSession session) {
         //获取手机号
         String phone = user.getPhone();
         if (StringUtils.isNotEmpty(phone)) {
@@ -52,12 +53,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             log.info("code={}", code);
 
             //调用阿里云提供的短信服务API完成发送短信
-            //SMSUtils.sendMessage("如意外卖","",phone,code);
+            //smsUtils.sendMessage("如意外卖", "SMS_184825163", code.toString(), phone);
 
             //将生成的验证码缓存到Redis中，并且设置有效期为5分钟
             redisTemplate.opsForValue().set(phone, code, 5, TimeUnit.MINUTES);
 
-            return user;
+            R<String> result = R.success("发送成功");
+            result.add("sendMsg", code);
+            return result;
         }
         throw new CustomException("短信发送失败");
     }
@@ -93,7 +96,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 user = new User();
                 user.setPhone(phone);
                 user.setStatus(1);
-                //user.setName("11");
+                user.setName("111");
                 userService.save(user);
             }
             session.setAttribute("user", user.getId());

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qh.ruyitakeaway.common.BaseContext;
-import com.qh.ruyitakeaway.common.CustomException;
+import com.qh.ruyitakeaway.common.exception.CustomException;
 import com.qh.ruyitakeaway.entity.AddressBook;
 import com.qh.ruyitakeaway.mapper.AddressBookMapper;
 import com.qh.ruyitakeaway.service.AddressBookService;

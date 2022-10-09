@@ -7,6 +7,12 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 菜品dto
+ *
+ * @author qh
+ * @date 2022/10/09 11:36:04
+ */
 @Data
 public class DishDto extends Dish {
 

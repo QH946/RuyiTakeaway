@@ -1,5 +1,6 @@
 package com.qh.ruyitakeaway.service;
 
+import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -24,7 +25,7 @@ public interface UserService extends IService<User> {
      * @param session 会话
      * @return {@link User}
      */
-    User sendMessage(User user, HttpSession session);
+    R<String> sendMessage(User user, HttpSession session);
 
     /**
      * 用户登录

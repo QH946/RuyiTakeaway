@@ -7,12 +7,22 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+
 /**
- * @author 清欢
- * @date 2022/9/19 16:55 16:55:55
+ * redis配置
+ *
+ * @author qh
+ * @date 2022/10/09 12:03:54
  */
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
+
+    /**
+     * 配置 key 的序列化器，使用字符串序列化器
+     *
+     * @param connectionFactory 连接工厂
+     * @return {@link RedisTemplate}<{@link Object},{@link Object}>
+     */
     @Bean
     public RedisTemplate<Object,Object> redisTemplate(RedisConnectionFactory connectionFactory){
         RedisTemplate<Object,Object> redisTemplate = new RedisTemplate<>();

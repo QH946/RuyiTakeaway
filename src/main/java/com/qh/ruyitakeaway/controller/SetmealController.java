@@ -151,6 +151,7 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/dish/{id}")
+    @ApiOperation("查看套餐信息")
     public R<List<DishDto>> dish(@PathVariable("id") Long SetmealId) {
         List<DishDto> dishDtoList = setmealService.getDishById(SetmealId);
         return R.success(dishDtoList);

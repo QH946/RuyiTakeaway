@@ -1,10 +1,6 @@
 server:
-  port: 9001
+  port: 9000
 spring:
-  devtools:
-    restart:
-      enabled: true
-      additional-paths: src/main/java
   application:
     #应用名称
     name: Ruyi_Takeaway

@@ -3,7 +3,7 @@ package com.qh.ruyitakeaway.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.qh.ruyitakeaway.common.CustomException;
+import com.qh.ruyitakeaway.common.exception.CustomException;
 import com.qh.ruyitakeaway.entity.Category;
 import com.qh.ruyitakeaway.entity.Dish;
 import com.qh.ruyitakeaway.entity.Setmeal;

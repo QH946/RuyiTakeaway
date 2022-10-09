@@ -50,7 +50,6 @@ public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper, Sho
         }
 
         //查询当前菜品或者套餐是否在购物车中
-        //SQL:select * from shopping_cart where user_id = ? and dish_id/setmeal_id = ?
         ShoppingCart cartServiceOne = shoppingCartService.getOne(queryWrapper);
 
         if (cartServiceOne != null) {

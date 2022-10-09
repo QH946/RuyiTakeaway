@@ -1,4 +1,4 @@
-package com.qh.ruyitakeaway.common;
+package com.qh.ruyitakeaway.common.exception;
 
 /**
  * @Author QH

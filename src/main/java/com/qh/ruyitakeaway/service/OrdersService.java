@@ -26,7 +26,7 @@ public interface OrdersService extends IService<Orders> {
      * @param pageSize 页面大小
      * @return {@link Page}
      */
-    Page getPage(int page, int pageSize);
+    Page getPage(int page, int pageSize) throws Exception;
 
     /**
      * 再来一单

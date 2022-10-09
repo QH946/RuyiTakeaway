@@ -43,9 +43,8 @@ public class UserController {
      */
     @ApiOperation("发送短信接口")
     @PostMapping("/sendMsg")
-    public R<User> sendMsg(@RequestBody User user, HttpSession session) {
-        User u = userService.sendMessage(user, session);
-        return R.success(u);
+    public R<String> sendMsg(@RequestBody User user, HttpSession session) {
+        return userService.sendMessage(user, session);
     }
 
     /**
@@ -64,7 +63,7 @@ public class UserController {
     }
 
     /**
-     * 用户登出
+     * 用户退出
      *
      * @param request
      * @return

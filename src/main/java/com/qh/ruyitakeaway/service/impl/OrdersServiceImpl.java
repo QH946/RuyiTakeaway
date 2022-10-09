@@ -5,9 +5,11 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qh.ruyitakeaway.common.BaseContext;
-import com.qh.ruyitakeaway.common.CustomException;
-import com.qh.ruyitakeaway.dto.OrderDto;
+import com.qh.ruyitakeaway.common.utils.ObjectConverter;
+import com.qh.ruyitakeaway.dto.OrderDetailDto;
+import com.qh.ruyitakeaway.dto.OrdersDto;
 import com.qh.ruyitakeaway.entity.*;
+import com.qh.ruyitakeaway.common.exception.CustomException;
 import com.qh.ruyitakeaway.mapper.OrdersMapper;
 import com.qh.ruyitakeaway.service.*;
 import lombok.extern.slf4j.Slf4j;
@@ -127,47 +129,33 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
      * @return {@link Page}
      */
     @Override
-    public Page getPage(int page, int pageSize) {
-        //构造分页构造器
-        Page<Orders> pageInfo = new Page<>(page, pageSize);
-
-        Page<OrderDto> ordersDtoPage = new Page<>();
-
-        //构造条件构造器
+    public Page getPage(int page, int pageSize) throws Exception {
+        Page<Orders> ordersPage = new Page<>(page, pageSize);
         LambdaQueryWrapper<Orders> queryWrapper = new LambdaQueryWrapper<>();
-
-        //添加排序条件
         queryWrapper.orderByDesc(Orders::getOrderTime);
+        ordersService.page(ordersPage, queryWrapper);
 
-        //进行分页查询
-        ordersService.page(pageInfo, queryWrapper);
+        // 转换为DTO
+        Page<OrdersDto> ordersDtoPage = new Page<>();
+        BeanUtils.copyProperties(ordersPage, ordersDtoPage, "records");
+        List<OrdersDto> ordersDtos = ObjectConverter.collectionBeanConverter(ordersPage.getRecords(), OrdersDto.class);
 
-        //对象拷贝
-        BeanUtils.copyProperties(pageInfo, ordersDtoPage, "records");
-        List<Orders> records = pageInfo.getRecords();
-        List<OrderDto> list = records.stream().map((item) -> {
-            OrderDto orderDto = new OrderDto();
-            BeanUtils.copyProperties(item, orderDto);
-            Long Id = item.getId();
-
-            //根据id查订单对象
-            Orders orders = ordersService.getById(Id);
-            String number = orders.getNumber();
-            LambdaQueryWrapper<OrderDetail> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-            lambdaQueryWrapper.eq(OrderDetail::getOrderId, number);
-            List<OrderDetail> orderDetailList = orderDetailService.list(lambdaQueryWrapper);
-            int num = 0;
-            for (OrderDetail l : orderDetailList) {
-                num += l.getNumber().intValue();
-            }
-            orderDto.setSumNum(num);
-            return orderDto;
-        }).collect(Collectors.toList());
-        ordersDtoPage.setRecords(list);
-
+        // 查询订单详情
+        for (OrdersDto item : ordersDtos) {
+            List<OrderDetail> orderDetails = orderDetailService.findByOrderId(item.getId());
+            List<OrderDetailDto> orderDetailDtos = ObjectConverter.collectionBeanConverter(orderDetails, OrderDetailDto.class);
+            item.setOrderDetails(orderDetailDtos);
+            item.setSumNum(orderDetailDtos.size());
+        }
+        ordersDtoPage.setRecords(ordersDtos);
         return ordersDtoPage;
     }
 
+    /**
+     * 再来一单
+     *
+     * @param order1 order1
+     */
     @Override
     public void againList(Orders order1) {
         //取得orderId
@@ -202,12 +190,22 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         orderDetailService.saveBatch(list);
     }
 
+    /**
+     * 查看订单详细
+     *
+     * @param page      页面
+     * @param pageSize  页面大小
+     * @param number    数量
+     * @param beginTime 开始时间
+     * @param endTime   结束时间
+     * @return {@link Page}
+     */
     @Override
     public Page getListDetails(int page, int pageSize, String number, String beginTime, String endTime) {
         //构造分页构造器
         Page<Orders> pageInfo = new Page<>(page, pageSize);
 
-        Page<OrderDto> orderDtoPage = new Page<>();
+        Page<OrdersDto> orderDtoPage = new Page<>();
         //构造条件构造器
         LambdaQueryWrapper<Orders> queryWrapper = new LambdaQueryWrapper<>();
         //根据number进行模糊查询
@@ -229,19 +227,24 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
         List<Orders> records = pageInfo.getRecords();
 
-        List<OrderDto> list = records.stream().map((item) -> {
-            OrderDto orderDto = new OrderDto();
+        List<OrdersDto> list = records.stream().map((item) -> {
+            OrdersDto ordersDto = new OrdersDto();
 
-            BeanUtils.copyProperties(item, orderDto);
+            BeanUtils.copyProperties(item, ordersDto);
             String name = "用户" + item.getUserId();
-            orderDto.setUserName(name);
-            return orderDto;
+            ordersDto.setUserName(name);
+            return ordersDto;
         }).collect(Collectors.toList());
 
         orderDtoPage.setRecords(list);
         return orderDtoPage;
     }
 
+    /**
+     * 派送订单
+     *
+     * @param orders 订单
+     */
     @Override
     public void send(Orders orders) {
         Long id = orders.getId();

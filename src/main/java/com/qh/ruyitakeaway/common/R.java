@@ -6,11 +6,12 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
- * @Author QH
- * @Date 2022/9/8 19:22
- * @Package: com.qh.ruyitakeaway.common
- * @Version 1.0
+ * 响应类
+ *
+ * @author qh
+ * @date 2022/10/09 14:47:48
  */
 @Data
 public class R<T> implements Serializable {

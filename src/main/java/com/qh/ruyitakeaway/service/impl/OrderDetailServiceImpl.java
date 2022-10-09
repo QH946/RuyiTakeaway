@@ -1,10 +1,13 @@
 package com.qh.ruyitakeaway.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.qh.ruyitakeaway.entity.OrderDetail;
 import com.qh.ruyitakeaway.mapper.OrderDetailMapper;
 import com.qh.ruyitakeaway.service.OrderDetailService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderDetailServiceImpl extends ServiceImpl<OrderDetailMapper, OrderDetail> implements OrderDetailService {
 
+    @Override
+    public List<OrderDetail> findByOrderId(Long id) {
+        LambdaQueryWrapper<OrderDetail> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderDetail::getOrderId, id);
+        return this.list(queryWrapper);
+    }
 }

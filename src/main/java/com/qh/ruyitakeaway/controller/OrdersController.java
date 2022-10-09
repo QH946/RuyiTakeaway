@@ -46,7 +46,7 @@ public class OrdersController {
     @ApiOperation("订单分页数据查询接口")
     @Transactional(rollbackFor = Exception.class)
     @GetMapping("/userPage")
-    public R<Page> userPage(int page, int pageSize) {
+    public R<Page> userPage(int page, int pageSize) throws Exception {
         Page ordersDtoPage = ordersService.getPage(page, pageSize);
         return R.success(ordersDtoPage);
     }
