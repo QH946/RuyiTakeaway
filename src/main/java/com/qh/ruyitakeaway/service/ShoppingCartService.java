@@ -31,7 +31,7 @@ public interface ShoppingCartService extends IService<ShoppingCart> {
     List<ShoppingCart> getList();
 
     /**
-     * 减少菜品
+     * 减少购物车中的菜品
      *
      * @param shoppingCart 购物车
      * @return {@link ShoppingCart}

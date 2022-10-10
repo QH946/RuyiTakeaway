@@ -34,7 +34,7 @@ public class CategoryController {
      * @param category
      * @return
      */
-    @ApiOperation(value = "新增分类接口")
+    @ApiOperation(value = "新增分类")
     @PostMapping
     public R<String> save(@RequestBody Category category) {
         log.info("category:{}", category);
@@ -49,7 +49,7 @@ public class CategoryController {
      * @param pageSize
      * @return
      */
-    @ApiOperation(value = "获取分类分页数据接口")
+    @ApiOperation(value = "分页查询套餐及菜品分类")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize) {
         Page pageInfo = categoryService.getPage(page, pageSize);
@@ -62,7 +62,7 @@ public class CategoryController {
      * @param id
      * @return
      */
-    @ApiOperation(value = "删除分类接口")
+    @ApiOperation(value = "删除分类")
     @DeleteMapping
     public R<String> delete(@RequestParam("ids") Long id) {
         log.info("删除分类，id为：{}", id);
@@ -78,7 +78,7 @@ public class CategoryController {
      * @param category
      * @return
      */
-    @ApiOperation(value = "修改分类接口")
+    @ApiOperation(value = "修改分类")
     @PutMapping
     public R<String> update(@RequestBody Category category) {
         log.info("修改分类信息：{}", category);
@@ -94,7 +94,7 @@ public class CategoryController {
      * @param category
      * @return
      */
-    @ApiOperation(value = "查询分类数据接口")
+    @ApiOperation(value = "查询分类数据")
     @GetMapping("/list")
     public R<List<Category>> list(Category category) {
         List<Category> list = categoryService.list(category);

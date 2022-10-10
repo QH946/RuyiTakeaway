@@ -76,8 +76,8 @@ public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper, Sho
     @Override
     public List<ShoppingCart> getList() {
         LambdaQueryWrapper<ShoppingCart> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(ShoppingCart::getUserId, BaseContext.getCurrentId());
-        queryWrapper.orderByAsc(ShoppingCart::getCreateTime);
+        queryWrapper.eq(ShoppingCart::getUserId, BaseContext.getCurrentId())
+                .orderByAsc(ShoppingCart::getCreateTime);
 
         List<ShoppingCart> list = shoppingCartService.list(queryWrapper);
 
@@ -85,7 +85,7 @@ public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper, Sho
     }
 
     /**
-     * 减少菜品
+     * 减少购物车中的菜品
      *
      * @param shoppingCart 购物车
      * @return {@link ShoppingCart}

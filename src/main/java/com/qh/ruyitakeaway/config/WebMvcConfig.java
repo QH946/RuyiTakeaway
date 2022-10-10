@@ -67,7 +67,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         // 静态资源和 login登录接口
-        String[] urls = new String[]{"/doc.html","/backend/**", "/front/**", "/employee/login", "/error"};
+        String[] urls = new String[]{"/doc.html","/backend/**", "/front/**", "/employee/login", "/error","/common/download"};
         String[] swaggerUrl = new String[]{
                 "/csrf", "/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**"};
         // 过滤白名单

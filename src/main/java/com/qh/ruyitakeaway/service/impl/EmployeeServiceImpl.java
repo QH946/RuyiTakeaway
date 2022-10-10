@@ -71,9 +71,9 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         //构造条件构造器
         LambdaQueryWrapper<Employee> queryWrapper = new LambdaQueryWrapper();
         //添加过滤条件
-        queryWrapper.like(StringUtils.isNotEmpty(name), Employee::getName, name);
-        //添加排序条件
-        queryWrapper.orderByDesc(Employee::getUpdateTime);
+        queryWrapper.like(StringUtils.isNotEmpty(name), Employee::getName, name)
+                //添加排序条件
+                .orderByDesc(Employee::getUpdateTime);
         //执行查询
         page(pageInfo, queryWrapper);
 

@@ -28,7 +28,7 @@ public class OrdersController {
     @Autowired
     private OrdersService ordersService;
 
-    @ApiOperation("用户下单接口")
+    @ApiOperation("用户下单")
     @PostMapping("/submit")
     public R<String> submit(@RequestBody Orders orders) {
         log.info("订单数据:{}", orders);
@@ -43,7 +43,7 @@ public class OrdersController {
      * @param pageSize
      * @return
      */
-    @ApiOperation("订单分页数据查询接口")
+    @ApiOperation("订单分页数据查询")
     @Transactional(rollbackFor = Exception.class)
     @GetMapping("/userPage")
     public R<Page> userPage(int page, int pageSize) throws Exception {
@@ -57,7 +57,7 @@ public class OrdersController {
      * @param order1
      * @return
      */
-    @ApiOperation("再来一单接口")
+    @ApiOperation("再来一单")
     @Transactional(rollbackFor = Exception.class)
     @PostMapping("/again")
     public R<String> again(@RequestBody Orders order1) {
@@ -76,7 +76,7 @@ public class OrdersController {
      * @param endTime   结束时间
      * @return {@link R}<{@link Page}>
      */
-    @ApiOperation("后台查看订单明细接口")
+    @ApiOperation("后台查看订单明细")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize, String number, String beginTime, String endTime) {
         Page orderDtoPage = ordersService.getListDetails(page, pageSize, number, beginTime, endTime);
@@ -84,12 +84,12 @@ public class OrdersController {
     }
 
     /**
-     * 外卖订单派送
+     * 派送外卖订单
      *
      * @param orders
      * @return
      */
-    @ApiOperation("外卖订单派送接口")
+    @ApiOperation("派送外卖订单")
     @PutMapping
     public R<String> send(@RequestBody Orders orders) {
         ordersService.send(orders);

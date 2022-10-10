@@ -38,7 +38,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
-    @ApiOperation(value = "员工登录接口")
+    @ApiOperation(value = "员工登录")
     @PostMapping("/login")
     public R<Employee> login(HttpServletRequest request, @RequestBody Employee employee) {
         Employee emp = employeeService.login(request, employee);
@@ -50,7 +50,7 @@ public class EmployeeController {
      * @param request
      * @return
      */
-    @ApiOperation(value = "员工退出登录接口")
+    @ApiOperation(value = "员工退出")
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request) {
         //清理Session中保存的当前登录员工的id
@@ -64,7 +64,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
-    @ApiOperation(value = "新增员工接口")
+    @ApiOperation(value = "新增员工")
     @PostMapping
     public R<String> save(HttpServletRequest request, @RequestBody Employee employee) {
         log.info("新增员工，员工信息：{}", employee.toString());
@@ -78,14 +78,14 @@ public class EmployeeController {
     }
 
     /**
-     * 员工信息分页查询
+     * 分页查询员工信息
      *
      * @param page
      * @param pageSize
      * @param name
      * @return
      */
-    @ApiOperation(value = "获取员工信息分页接口")
+    @ApiOperation(value = "分页查询员工信息")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize, String name) {
         log.info("page = {},pageSize = {},name = {}", page, pageSize, name);
@@ -99,7 +99,7 @@ public class EmployeeController {
      * @param employee
      * @return
      */
-    @ApiOperation(value = "修改员工信息接口")
+    @ApiOperation(value = "修改员工信息")
     @PutMapping
     public R<String> update(HttpServletRequest request, @RequestBody Employee employee) {
         log.info(employee.toString());
@@ -117,7 +117,7 @@ public class EmployeeController {
      * @param id
      * @return
      */
-    @ApiOperation(value = "获取单个员工信息接口")
+    @ApiOperation(value = "获取单个员工信息")
     @GetMapping("/{id}")
     public R<Employee> getById(@PathVariable Long id) {
         log.info("根据id查询员工信息...");

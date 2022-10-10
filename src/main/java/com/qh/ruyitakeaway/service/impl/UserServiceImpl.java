@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qh.ruyitakeaway.common.R;
 import com.qh.ruyitakeaway.common.exception.CustomException;
+import com.qh.ruyitakeaway.common.utils.RedisUtils;
 import com.qh.ruyitakeaway.common.utils.ValidateCodeUtils;
 import com.qh.ruyitakeaway.entity.User;
 import com.qh.ruyitakeaway.mapper.UserMapper;
@@ -11,12 +12,11 @@ import com.qh.ruyitakeaway.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -33,7 +33,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private UserService userService;
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisUtils redisUtils;
+    @Value("${sendMessage.redisPrefix}")
+    private String sendMessagePrefix;
+    @Value("#{new Long(${sendMessage.expirationTimeSecond})}")
+    private Long expirationTime;
 
 
     /**
@@ -55,9 +59,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             //调用阿里云提供的短信服务API完成发送短信
             //smsUtils.sendMessage("如意外卖", "SMS_184825163", code.toString(), phone);
 
-            //将生成的验证码缓存到Redis中，并且设置有效期为5分钟
-            redisTemplate.opsForValue().set(phone, code, 5, TimeUnit.MINUTES);
-
+            //将生成的验证码缓存到Redis中
+            redisUtils.setWithExpir(sendMessagePrefix + phone, code, expirationTime);
             R<String> result = R.success("发送成功");
             result.add("sendMsg", code);
             return result;
@@ -81,7 +84,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         String code = map.get("code").toString();
 
         //从Redis中获取缓存的验证码
-        Object codeInSession = redisTemplate.opsForValue().get(phone);
+        Object codeInSession = redisUtils.getAndDelete(sendMessagePrefix + phone);
 
         //进行验证码的比对（页面提交的验证码和Session中保存的验证码比对）
         if (codeInSession != null && codeInSession.equals(code)) {
@@ -100,9 +103,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 userService.save(user);
             }
             session.setAttribute("user", user.getId());
-
-            //如果用户登录成功，删除Redis中缓存的验证码
-            redisTemplate.delete(phone);
 
             return user;
         }

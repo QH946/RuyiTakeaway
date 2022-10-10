@@ -41,7 +41,7 @@ public class UserController {
      * @param session
      * @return
      */
-    @ApiOperation("发送短信接口")
+    @ApiOperation("发送短信")
     @PostMapping("/sendMsg")
     public R<String> sendMsg(@RequestBody User user, HttpSession session) {
         return userService.sendMessage(user, session);
@@ -54,7 +54,7 @@ public class UserController {
      * @param session
      * @return
      */
-    @ApiOperation("用户登录接口")
+    @ApiOperation("用户登录")
     @PostMapping("/login")
     public R<User> login(@RequestBody Map map, HttpSession session) {
         log.info(map.toString());
@@ -68,7 +68,7 @@ public class UserController {
      * @param request
      * @return
      */
-    @ApiOperation("用户登出接口")
+    @ApiOperation("用户退出")
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request) {
         //清理Session中保存的当前用户登录的id

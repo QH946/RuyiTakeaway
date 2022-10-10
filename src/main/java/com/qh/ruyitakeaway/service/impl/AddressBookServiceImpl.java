@@ -36,8 +36,8 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
     @Override
     public AddressBook setDefault(AddressBook addressBook) {
         LambdaUpdateWrapper<AddressBook> wrapper = new LambdaUpdateWrapper<>();
-        wrapper.eq(AddressBook::getUserId, BaseContext.getCurrentId());
-        wrapper.set(AddressBook::getIsDefault, 0);
+        wrapper.eq(AddressBook::getUserId, BaseContext.getCurrentId())
+                .set(AddressBook::getIsDefault, 0);
         //SQL:update address_book set is_default = 0 where user_id = ?
         addressBookService.update(wrapper);
 
@@ -55,8 +55,8 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
     @Override
     public AddressBook getDefault() {
         LambdaQueryWrapper<AddressBook> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(AddressBook::getUserId, BaseContext.getCurrentId());
-        queryWrapper.eq(AddressBook::getIsDefault, 1);
+        queryWrapper.eq(AddressBook::getUserId, BaseContext.getCurrentId())
+                .eq(AddressBook::getIsDefault, 1);
 
         //SQL:select * from address_book where user_id = ? and is_default = 1
         AddressBook addressBook = addressBookService.getOne(queryWrapper);
@@ -78,8 +78,8 @@ public class AddressBookServiceImpl extends ServiceImpl<AddressBookMapper, Addre
     public List<AddressBook> list(AddressBook addressBook) {
         //条件构造器
         LambdaQueryWrapper<AddressBook> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(null != addressBook.getUserId(), AddressBook::getUserId, addressBook.getUserId());
-        queryWrapper.orderByDesc(AddressBook::getUpdateTime);
+        queryWrapper.eq(null != addressBook.getUserId(), AddressBook::getUserId, addressBook.getUserId())
+                .orderByDesc(AddressBook::getUpdateTime);
 
         //SQL:select * from address_book where user_id = ? order by update_time desc
         return addressBookService.list(queryWrapper);

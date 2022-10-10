@@ -10,7 +10,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,37 +30,29 @@ public class DishController {
     @Autowired
     private DishService dishService;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
-
     /**
      * 新增菜品
      *
      * @param dishDto
      * @return
      */
-    @ApiOperation(value = "新增菜品接口")
+    @ApiOperation(value = "新增菜品")
     @PostMapping
     public R<String> save(@RequestBody DishDto dishDto) {
         log.info(dishDto.toString());
         dishService.saveWithFlavor(dishDto);
-
-        //清理某个分类下面的菜品缓存数据
-        String key = "dish_" + dishDto.getCategoryId() ;
-        redisTemplate.delete(key);
-
         return R.success("添加菜品成功");
     }
 
     /**
-     * 菜品信息分页查询
+     * 分页查询菜品信息
      *
      * @param page
      * @param pageSize
      * @param name
      * @return
      */
-    @ApiOperation(value = "获取菜品信息接口")
+    @ApiOperation(value = "分页查询菜品信息")
     @GetMapping("/page")
     public R<Page> page(int page, int pageSize, String name) {
         Page pageInfo = dishService.getPage(page, pageSize, name);
@@ -74,7 +65,7 @@ public class DishController {
      * @param id
      * @return
      */
-    @ApiOperation(value = "通过id查询菜品的详细信息接口")
+    @ApiOperation(value = "通过id查询菜品的详细信息")
     @GetMapping("/{id}")
     public R<DishDto> get(@PathVariable Long id) {
         DishDto dishDto = dishService.getByIdWithFlavor(id);
@@ -87,29 +78,26 @@ public class DishController {
      * @param dishDto
      * @return
      */
-    @ApiOperation(value = "更新菜品信息接口")
+    @ApiOperation(value = "更新菜品信息")
     @PutMapping
     public R<String> update(@RequestBody DishDto dishDto) {
         log.info(dishDto.toString());
         dishService.updateWithFlavor(dishDto);
-        //清理某个分类下面的菜品缓存数据
-        String key = "dish_" + dishDto.getCategoryId();
-        redisTemplate.delete(key);
         return R.success("修改菜品成功");
     }
 
     /**
      * 修改菜品售卖状态
      *
-     * @param status
-     * @param ids
-     * @return
+     * @param statusType 状态类型
+     * @param ids        id
+     * @return {@link R}<{@link String}>
      */
-    @ApiOperation(value = "修改菜品停用或者启用接口")
-    @PostMapping("status/{status}")
-    public R<String> sale(@PathVariable int status, String[] ids) {
-        log.info("售卖状态：{},ids:{}", status, ids);
-        dishService.updateSale(status,ids);
+    @ApiOperation(value = "停用或者启用菜品")
+    @PostMapping("/status/{statusType}")
+    public R<String> sale(@PathVariable Integer statusType,
+                          @RequestParam List<Long> ids) {
+        dishService.updateStatus(statusType, ids);
         return R.success("修改成功");
     }
 
@@ -119,10 +107,10 @@ public class DishController {
      * @param ids
      * @return
      */
-    @ApiOperation(value = "删除菜品接口")
+    @ApiOperation(value = "删除菜品")
     @DeleteMapping
-    public R<String> delete(String[] ids) {
-        dishService.deleteDish(ids);
+    public R<String> delete(@RequestParam("ids") List<Long> ids) {
+        dishService.deleteWithFlavors(ids);
         return R.success("删除成功");
     }
 

@@ -86,14 +86,20 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         return pageInfo;
     }
 
+    /**
+     * 新建菜品时，获取菜品分类
+     *
+     * @param category 类别
+     * @return {@link List}<{@link Category}>
+     */
     @Override
     public List<Category> list(Category category) {
         //条件构造器
         LambdaQueryWrapper<Category> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         //添加条件
-        lambdaQueryWrapper.eq(category.getType() != null, Category::getType, category.getType());
-        //添加排序条件
-        lambdaQueryWrapper.orderByAsc(Category::getSort).orderByAsc(Category::getUpdateTime);
+        lambdaQueryWrapper.eq(category.getType() != null, Category::getType, category.getType())
+                //添加排序条件
+                .orderByAsc(Category::getSort).orderByAsc(Category::getUpdateTime);
         List<Category> list = categoryService.list(lambdaQueryWrapper);
         return list;
     }

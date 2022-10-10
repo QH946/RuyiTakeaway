@@ -92,7 +92,7 @@
 <div class="knife4j-word-divider"></div>
 <div class="knife4j-word-line"><strong>作者</strong>:<code></code></div>
 <div class="knife4j-word-divider"></div>
-<div class="knife4j-word-line"><strong>HOST</strong>:localhost:9001</div>
+<div class="knife4j-word-line"><strong>HOST</strong>:localhost:9000</div>
 <div class="knife4j-word-divider"></div>
 <div class="knife4j-word-line"><strong>basePath</strong>:/</div>
 <div class="knife4j-word-divider"></div>
@@ -2114,7 +2114,7 @@
 
 
 
-<h3>2.2.1新增分类接口</h3>
+<h3>2.2.1新增分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/category</code></div>
@@ -2308,7 +2308,7 @@
 </div>
 
 
-<h3>2.2.2修改分类接口</h3>
+<h3>2.2.2修改分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/category</code></div>
@@ -2502,7 +2502,7 @@
 </div>
 
 
-<h3>2.2.3删除分类接口</h3>
+<h3>2.2.3删除分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/category</code></div>
@@ -2612,7 +2612,7 @@
 </div>
 
 
-<h3>2.2.4查询分类数据接口</h3>
+<h3>2.2.4查询分类数据</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/category/list</code></div>
@@ -2837,7 +2837,7 @@
 </div>
 
 
-<h3>2.2.5获取分类分页数据接口</h3>
+<h3>2.2.5分页查询套餐及菜品分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/category/page</code></div>
@@ -3046,7 +3046,7 @@
 
 
 
-<h3>2.3.1文件下载接口</h3>
+<h3>2.3.1文件下载</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/common/download</code></div>
@@ -3128,7 +3128,7 @@
 </div>
 
 
-<h3>2.3.2文件上传接口</h3>
+<h3>2.3.2文件上传</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/common/upload</code></div>
@@ -3246,7 +3246,7 @@
 
 
 
-<h3>2.4.1新增菜品接口</h3>
+<h3>2.4.1新增菜品</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/dish</code></div>
@@ -3605,7 +3605,7 @@
 </div>
 
 
-<h3>2.4.2更新菜品信息接口</h3>
+<h3>2.4.2更新菜品信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/dish</code></div>
@@ -3964,7 +3964,7 @@
 </div>
 
 
-<h3>2.4.3删除菜品接口</h3>
+<h3>2.4.3删除菜品</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/dish</code></div>
@@ -3985,9 +3985,9 @@
 <td>ids</td>
 <td>ids</td>
 <td>query</td>
-<td>false</td>
+<td>true</td>
 <td>array</td>
-<td>string</td>
+<td>integer</td>
 </tr>
 </tbody>
 </table>
@@ -4476,7 +4476,7 @@
 </div>
 
 
-<h3>2.4.5获取菜品信息接口</h3>
+<h3>2.4.5分页查询菜品信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/dish/page</code></div>
@@ -4690,10 +4690,10 @@
 </div>
 
 
-<h3>2.4.6修改菜品停用或者启用接口</h3>
+<h3>2.4.6停用或者启用菜品</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
-<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/dish/status/{status}</code></div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/dish/status/{statusType}</code></div>
 <div class="knife4j-word-title">接口描述</div>
 <div class="knife4j-word-content"></div>
 <div class="knife4j-word-title">请求数据类型</div>
@@ -4708,20 +4708,20 @@
 <thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
 <tbody>
 <tr>
-<td>status</td>
-<td>status</td>
+<td>ids</td>
+<td>ids</td>
+<td>query</td>
+<td>true</td>
+<td>array</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>statusType</td>
+<td>statusType</td>
 <td>path</td>
 <td>true</td>
 <td>integer(int32)</td>
 <td></td>
-</tr>
-<tr>
-<td>ids</td>
-<td>ids</td>
-<td>query</td>
-<td>false</td>
-<td>array</td>
-<td>string</td>
 </tr>
 </tbody>
 </table>
@@ -4813,7 +4813,7 @@
 </div>
 
 
-<h3>2.4.7通过id查询菜品的详细信息接口</h3>
+<h3>2.4.7通过id查询菜品的详细信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/dish/{id}</code></div>
@@ -5112,7 +5112,7 @@
 
 
 
-<h3>2.5.1新增员工接口</h3>
+<h3>2.5.1新增员工</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/employee</code></div>
@@ -5342,7 +5342,7 @@
 </div>
 
 
-<h3>2.5.2修改员工信息接口</h3>
+<h3>2.5.2修改员工信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/employee</code></div>
@@ -5572,7 +5572,7 @@
 </div>
 
 
-<h3>2.5.3员工登录接口</h3>
+<h3>2.5.3员工登录</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/employee/login</code></div>
@@ -5887,7 +5887,7 @@
 </div>
 
 
-<h3>2.5.4员工退出登录接口</h3>
+<h3>2.5.4员工退出</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/employee/logout</code></div>
@@ -5995,7 +5995,7 @@
 </div>
 
 
-<h3>2.5.5获取员工信息分页接口</h3>
+<h3>2.5.5分页查询员工信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/employee/page</code></div>
@@ -6209,7 +6209,7 @@
 </div>
 
 
-<h3>2.5.6获取单个员工信息接口</h3>
+<h3>2.5.6获取单个员工信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/employee/{id}</code></div>
@@ -6407,7 +6407,7 @@
 
 
 
-<h3>2.6.1外卖订单派送接口</h3>
+<h3>2.6.1派送外卖订单</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/order</code></div>
@@ -6655,7 +6655,7 @@
 </div>
 
 
-<h3>2.6.2再来一单接口</h3>
+<h3>2.6.2再来一单</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/order/again</code></div>
@@ -6903,7 +6903,7 @@
 </div>
 
 
-<h3>2.6.3后台查看订单明细接口</h3>
+<h3>2.6.3后台查看订单明细</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/order/page</code></div>
@@ -7133,7 +7133,7 @@
 </div>
 
 
-<h3>2.6.4用户下单接口</h3>
+<h3>2.6.4用户下单</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/order/submit</code></div>
@@ -7381,7 +7381,7 @@
 </div>
 
 
-<h3>2.6.5订单分页数据查询接口</h3>
+<h3>2.6.5订单分页数据查询</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/order/userPage</code></div>
@@ -7590,7 +7590,7 @@
 
 
 
-<h3>2.7.1添加购物车数据接口</h3>
+<h3>2.7.1添加购物车数据</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/shoppingCart/add</code></div>
@@ -7873,7 +7873,7 @@
 </div>
 
 
-<h3>2.7.2清空购物车接口</h3>
+<h3>2.7.2清空购物车</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/shoppingCart/clean</code></div>
@@ -7976,7 +7976,7 @@
 </div>
 
 
-<h3>2.7.3获取购物车列表接口</h3>
+<h3>2.7.3获取购物车列表</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/shoppingCart/list</code></div>
@@ -8152,7 +8152,7 @@
 </div>
 
 
-<h3>2.7.4减少菜品接口</h3>
+<h3>2.7.4减少购物车中菜品</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/shoppingCart/sub</code></div>
@@ -8438,7 +8438,7 @@
 
 
 
-<h3>2.8.1用户登录接口</h3>
+<h3>2.8.1用户登录</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/login</code></div>
@@ -8651,7 +8651,7 @@
 </div>
 
 
-<h3>2.8.2用户登出接口</h3>
+<h3>2.8.2用户退出</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/logout</code></div>
@@ -8759,7 +8759,7 @@
 </div>
 
 
-<h3>2.8.3发送短信接口</h3>
+<h3>2.8.3发送短信</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/sendMsg</code></div>
@@ -8917,7 +8917,7 @@
 <tr>
 <td>200</td>
 <td>OK</td>
-<td>R«User对象»</td>
+<td>R«string»</td>
 </tr>
 <tr>
 <td>201</td>
@@ -8960,49 +8960,7 @@
 <tr>
 <td>data</td>
 <td></td>
-<td>User对象</td>
-<td>User对象</td>
-</tr>
-<tr>
-<td>&nbsp;avatar</td>
-<td>头像</td>
 <td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;id</td>
-<td>主键</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;idNumber</td>
-<td>身份证号</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;name</td>
-<td>姓名</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;phone</td>
-<td>手机号</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;sex</td>
-<td>性别</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;status</td>
-<td>状态 0:禁用，1:正常</td>
-<td>integer(int32)</td>
 <td></td>
 </tr>
 <tr>
@@ -9026,15 +8984,7 @@
 <div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
 {
 	<span class="key">"code":</span> <span class="number">0</span>,
-	<span class="key">"data":</span> {
-		<span class="key">"avatar":</span> <span class="string">""</span>,
-		<span class="key">"id":</span> <span class="number">0</span>,
-		<span class="key">"idNumber":</span> <span class="string">""</span>,
-		<span class="key">"name":</span> <span class="string">""</span>,
-		<span class="key">"phone":</span> <span class="string">""</span>,
-		<span class="key">"sex":</span> <span class="string">""</span>,
-		<span class="key">"status":</span> <span class="number">0</span>
-	},
+	<span class="key">"data":</span> <span class="string">""</span>,
 	<span class="key">"map":</span> {},
 	<span class="key">"msg":</span> <span class="string">""</span>
 }
@@ -9045,7 +8995,7 @@
 
 
 
-<h3>2.9.1新增套餐接口</h3>
+<h3>2.9.1新增套餐</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/setmeal</code></div>
@@ -9413,7 +9363,7 @@
 </div>
 
 
-<h3>2.9.2修改套餐查询接口</h3>
+<h3>2.9.2修改套餐信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/setmeal</code></div>
@@ -9781,7 +9731,7 @@
 </div>
 
 
-<h3>2.9.3套餐删除接口</h3>
+<h3>2.9.3删除套餐</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/setmeal</code></div>
@@ -9891,7 +9841,7 @@
 </div>
 
 
-<h3>2.9.4dish</h3>
+<h3>2.9.4移动端查看套餐下的菜品信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/dish/{id}</code></div>
@@ -10189,7 +10139,7 @@
 </div>
 
 
-<h3>2.9.5根据条件查询套餐数据接口</h3>
+<h3>2.9.5根据条件查询套餐数据</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/list</code></div>
@@ -10489,7 +10439,7 @@
 </div>
 
 
-<h3>2.9.6套餐分页查询接口</h3>
+<h3>2.9.6套餐分页查询</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/page</code></div>
@@ -10703,7 +10653,7 @@
 </div>
 
 
-<h3>2.9.7修改售卖状态接口</h3>
+<h3>2.9.7修改套餐售卖状态</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/setmeal/status/{status}</code></div>
@@ -10826,7 +10776,7 @@
 </div>
 
 
-<h3>2.9.8套餐条件查询接口</h3>
+<h3>2.9.8通过id获取套餐信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/{id}</code></div>

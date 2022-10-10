@@ -20,22 +20,25 @@ public interface DishService extends IService<Dish> {
 
     /**
      * 新增菜品，同时插入菜品对应的口味数据，需要操作两张表：dish、dish_flavor
+     *
      * @param dishDto
      */
-     void saveWithFlavor(DishDto dishDto);
+    void saveWithFlavor(DishDto dishDto);
 
     /**
      * 根据id查询菜品信息和对应的口味信息
+     *
      * @param id
      * @return
      */
-     DishDto getByIdWithFlavor(Long id);
+    DishDto getByIdWithFlavor(Long id);
 
     /**
      * 更新菜品信息，同时更新对应的口味信息
+     *
      * @param dishDto
      */
-     void updateWithFlavor(DishDto dishDto);
+    void updateWithFlavor(DishDto dishDto);
 
     /**
      * 菜品信息分页查询
@@ -58,18 +61,23 @@ public interface DishService extends IService<Dish> {
     /**
      * 修改菜品售卖状态
      *
-     * @param status 状态
-     * @param ids    id
-     * @return {@link String}
+     * @param statusType 状态类型
+     * @param ids        id
      */
-    void updateSale(int status, String[] ids);
+    void updateStatus(Integer statusType, List<Long> ids);
 
     /**
-     * 删除菜品
+     * 删除菜品及口味
+     *
+     * @param id id
+     */
+    void deleteWithFlavor(Long id);
+
+    /**
+     * 批量删除菜品及口味
      *
      * @param ids id
-     * @return {@link Boolean}
      */
-    void deleteDish(String[] ids);
+    void deleteWithFlavors(List<Long> ids);
 
 }

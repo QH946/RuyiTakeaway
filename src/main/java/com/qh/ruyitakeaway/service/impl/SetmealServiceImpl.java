@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -180,15 +181,16 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
      */
     @Override
     public void updateSale(int status, String[] ids) {
-        for (String id : ids) {
-            Setmeal setmeal = setmealService.getById(id);
-            setmeal.setStatus(status);
-            setmealService.updateById(setmeal);
-        }
+        Arrays.stream(ids)
+                .map(id -> setmealService.getById(id))
+                .forEach(setmeal -> {
+                    setmeal.setStatus(status);
+                    setmealService.updateById(setmeal);
+                });
     }
 
     /**
-     * 根据条件查询套餐数据
+     * 根据条件查询套餐数据（添加套餐时获取套餐分类）
      *
      * @param setmeal setmeal
      * @return {@link List}<{@link Setmeal}>
@@ -196,9 +198,9 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper, Setmeal> impl
     @Override
     public List<Setmeal> getList(Setmeal setmeal) {
         LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(setmeal.getCategoryId() != null, Setmeal::getCategoryId, setmeal.getCategoryId());
-        queryWrapper.eq(setmeal.getStatus() != null, Setmeal::getStatus, setmeal.getStatus());
-        queryWrapper.orderByDesc(Setmeal::getUpdateTime);
+        queryWrapper.eq(setmeal.getCategoryId() != null, Setmeal::getCategoryId, setmeal.getCategoryId())
+                .eq(setmeal.getStatus() != null, Setmeal::getStatus, setmeal.getStatus())
+                .orderByDesc(Setmeal::getUpdateTime);
         List<Setmeal> list = setmealService.list(queryWrapper);
         return list;
     }

@@ -1,5 +1,6 @@
 package com.qh.ruyitakeaway.config;
 
+import com.qh.ruyitakeaway.common.utils.FastJsonRedisSerializer;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,19 +17,31 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  */
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
-
     /**
-     * 配置 key 的序列化器，使用字符串序列化器
+     * 封装模板
      *
      * @param connectionFactory 连接工厂
-     * @return {@link RedisTemplate}<{@link Object},{@link Object}>
+     * @return {@link RedisTemplate}<{@link Object}, {@link Object}>
      */
     @Bean
-    public RedisTemplate<Object,Object> redisTemplate(RedisConnectionFactory connectionFactory){
-        RedisTemplate<Object,Object> redisTemplate = new RedisTemplate<>();
-        //默认的Key序列化器为: JdkSerializationRedisSerializer
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setConnectionFactory( connectionFactory) ;
-        return redisTemplate;
-    }
+   @SuppressWarnings(value = { "unchecked", "rawtypes" })
+   public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory)
+   {
+       RedisTemplate<Object, Object> template = new RedisTemplate<>();
+       template.setConnectionFactory(connectionFactory);
+
+       FastJsonRedisSerializer serializer = new FastJsonRedisSerializer(Object.class);
+
+       // 使用StringRedisSerializer来序列化和反序列化redis的key值
+       template.setKeySerializer(new StringRedisSerializer());
+       template.setValueSerializer(serializer);
+
+       // Hash的key也采用StringRedisSerializer的序列化方式
+       template.setHashKeySerializer(new StringRedisSerializer());
+       template.setHashValueSerializer(serializer);
+
+       template.afterPropertiesSet();
+       return template;
+   }
+
 }

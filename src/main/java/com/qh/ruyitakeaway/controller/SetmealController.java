@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,7 @@ import java.util.List;
  */
 @Api(tags = "套餐相关接口")
 @Slf4j
+@CacheConfig(cacheNames = {"setmealCache"})
 @RestController
 @RequestMapping("/setmeal")
 public class SetmealController {
@@ -41,8 +43,8 @@ public class SetmealController {
      * @return
      */
     @PostMapping
-    @CacheEvict(value = "setmealCache", allEntries = true)
-    @ApiOperation(value = "新增套餐接口")
+    @CacheEvict(allEntries = true)
+    @ApiOperation(value = "新增套餐")
     public R<String> save(@RequestBody SetmealDto setmealDto) {
         log.info("套餐信息:{}", setmealDto);
         setmealService.saveWithDish(setmealDto);
@@ -58,7 +60,7 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/page")
-    @ApiOperation(value = "套餐分页查询接口")
+    @ApiOperation(value = "套餐分页查询")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页码", required = true),
             @ApiImplicitParam(name = "pageSize", value = "每页记录数", required = true),
@@ -77,8 +79,8 @@ public class SetmealController {
      * @return
      */
     @DeleteMapping
-    @CacheEvict(value = "setmealCache", allEntries = true)
-    @ApiOperation(value = "套餐删除接口")
+    @CacheEvict(allEntries = true)
+    @ApiOperation(value = "删除套餐")
     public R<String> delete(@RequestParam List<Long> ids) {
         log.info("ids:{}", ids);
 
@@ -94,7 +96,7 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/{id}")
-    @ApiOperation(value = "套餐条件查询接口")
+    @ApiOperation(value = "通过id获取套餐信息")
     public R<SetmealDto> getById(@PathVariable Long id) {
         SetmealDto setmealDto = setmealService.getByIdWithDish(id);
         return R.success(setmealDto);
@@ -108,7 +110,7 @@ public class SetmealController {
      */
     @PutMapping
     @CacheEvict(value = "setmealCache", allEntries = true)
-    @ApiOperation(value = "修改套餐查询接口")
+    @ApiOperation(value = "修改套餐信息")
     public R<String> update(@RequestBody SetmealDto setmealDto) {
         setmealService.updateWithDish(setmealDto);
         return R.success("修改成功");
@@ -122,7 +124,7 @@ public class SetmealController {
      * @return
      */
     @PostMapping("/status/{status}")
-    @ApiOperation(value = "修改售卖状态接口")
+    @ApiOperation(value = "修改套餐售卖状态")
     public R<String> sale(@PathVariable int status, String[] ids) {
         setmealService.updateSale(status, ids);
         return R.success("修改成功");
@@ -135,8 +137,8 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/list")
-    @Cacheable(value = "setmealCache", key = "#setmeal.categoryId + '_' + #setmeal.status")
-    @ApiOperation(value = "根据条件查询套餐数据接口")
+    @Cacheable(key = "#setmeal.categoryId + '_'+ #setmeal.status", unless = "#result.data == null")
+    @ApiOperation(value = "根据条件查询套餐数据")
     public R<List<Setmeal>> list(Setmeal setmeal) {
         List<Setmeal> list = setmealService.getList(setmeal);
         return R.success(list);
@@ -151,7 +153,7 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/dish/{id}")
-    @ApiOperation("查看套餐信息")
+    @ApiOperation("移动端查看套餐下的菜品信息")
     public R<List<DishDto>> dish(@PathVariable("id") Long SetmealId) {
         List<DishDto> dishDtoList = setmealService.getDishById(SetmealId);
         return R.success(dishDtoList);

@@ -5,7 +5,7 @@
     "version": "1.0",
     "title": "如意外卖"
   },
-  "host": "localhost:9001",
+  "host": "localhost:9000",
   "basePath": "/",
   "tags": [
     {
@@ -466,7 +466,7 @@
         "tags": [
           "category-controller"
         ],
-        "summary": "新增分类接口",
+        "summary": "新增分类",
         "operationId": "saveUsingPOST_1",
         "consumes": [
           "application/json"
@@ -510,7 +510,7 @@
         "tags": [
           "category-controller"
         ],
-        "summary": "修改分类接口",
+        "summary": "修改分类",
         "operationId": "updateUsingPUT_1",
         "consumes": [
           "application/json"
@@ -554,7 +554,7 @@
         "tags": [
           "category-controller"
         ],
-        "summary": "删除分类接口",
+        "summary": "删除分类",
         "operationId": "deleteUsingDELETE_1",
         "produces": [
           "*/*"
@@ -593,7 +593,7 @@
         "tags": [
           "category-controller"
         ],
-        "summary": "查询分类数据接口",
+        "summary": "查询分类数据",
         "operationId": "listUsingGET_1",
         "produces": [
           "*/*"
@@ -687,7 +687,7 @@
         "tags": [
           "category-controller"
         ],
-        "summary": "获取分类分页数据接口",
+        "summary": "分页查询套餐及菜品分类",
         "operationId": "pageUsingGET",
         "produces": [
           "*/*"
@@ -734,7 +734,7 @@
         "tags": [
           "common-controller"
         ],
-        "summary": "文件下载接口",
+        "summary": "文件下载",
         "operationId": "downloadUsingGET",
         "produces": [
           "*/*"
@@ -769,7 +769,7 @@
         "tags": [
           "common-controller"
         ],
-        "summary": "文件上传接口",
+        "summary": "文件上传",
         "operationId": "uploadUsingPOST",
         "consumes": [
           "multipart/form-data"
@@ -816,7 +816,7 @@
         "tags": [
           "dish-controller"
         ],
-        "summary": "新增菜品接口",
+        "summary": "新增菜品",
         "operationId": "saveUsingPOST_2",
         "consumes": [
           "application/json"
@@ -860,7 +860,7 @@
         "tags": [
           "dish-controller"
         ],
-        "summary": "更新菜品信息接口",
+        "summary": "更新菜品信息",
         "operationId": "updateUsingPUT_2",
         "consumes": [
           "application/json"
@@ -904,7 +904,7 @@
         "tags": [
           "dish-controller"
         ],
-        "summary": "删除菜品接口",
+        "summary": "删除菜品",
         "operationId": "deleteUsingDELETE_2",
         "produces": [
           "*/*"
@@ -914,10 +914,11 @@
             "name": "ids",
             "in": "query",
             "description": "ids",
-            "required": false,
+            "required": true,
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             },
             "collectionFormat": "multi"
           }
@@ -1084,7 +1085,7 @@
         "tags": [
           "dish-controller"
         ],
-        "summary": "获取菜品信息接口",
+        "summary": "分页查询菜品信息",
         "operationId": "pageUsingGET_1",
         "produces": [
           "*/*"
@@ -1133,12 +1134,12 @@
         }
       }
     },
-    "/dish/status/{status}": {
+    "/dish/status/{statusType}": {
       "post": {
         "tags": [
           "dish-controller"
         ],
-        "summary": "修改菜品停用或者启用接口",
+        "summary": "停用或者启用菜品",
         "operationId": "saleUsingPOST",
         "consumes": [
           "application/json"
@@ -1151,17 +1152,18 @@
             "name": "ids",
             "in": "query",
             "description": "ids",
-            "required": false,
+            "required": true,
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             },
             "collectionFormat": "multi"
           },
           {
-            "name": "status",
+            "name": "statusType",
             "in": "path",
-            "description": "status",
+            "description": "statusType",
             "required": true,
             "type": "integer",
             "format": "int32"
@@ -1194,7 +1196,7 @@
         "tags": [
           "dish-controller"
         ],
-        "summary": "通过id查询菜品的详细信息接口",
+        "summary": "通过id查询菜品的详细信息",
         "operationId": "getUsingGET_1",
         "produces": [
           "*/*"
@@ -1233,7 +1235,7 @@
         "tags": [
           "employee-controller"
         ],
-        "summary": "新增员工接口",
+        "summary": "新增员工",
         "operationId": "saveUsingPOST_3",
         "consumes": [
           "application/json"
@@ -1277,7 +1279,7 @@
         "tags": [
           "employee-controller"
         ],
-        "summary": "修改员工信息接口",
+        "summary": "修改员工信息",
         "operationId": "updateUsingPUT_3",
         "consumes": [
           "application/json"
@@ -1323,7 +1325,7 @@
         "tags": [
           "employee-controller"
         ],
-        "summary": "员工登录接口",
+        "summary": "员工登录",
         "operationId": "loginUsingPOST",
         "consumes": [
           "application/json"
@@ -1369,7 +1371,7 @@
         "tags": [
           "employee-controller"
         ],
-        "summary": "员工退出登录接口",
+        "summary": "员工退出",
         "operationId": "logoutUsingPOST",
         "consumes": [
           "application/json"
@@ -1404,7 +1406,7 @@
         "tags": [
           "employee-controller"
         ],
-        "summary": "获取员工信息分页接口",
+        "summary": "分页查询员工信息",
         "operationId": "pageUsingGET_2",
         "produces": [
           "*/*"
@@ -1458,7 +1460,7 @@
         "tags": [
           "employee-controller"
         ],
-        "summary": "获取单个员工信息接口",
+        "summary": "获取单个员工信息",
         "operationId": "getByIdUsingGET",
         "produces": [
           "*/*"
@@ -1497,7 +1499,7 @@
         "tags": [
           "orders-controller"
         ],
-        "summary": "外卖订单派送接口",
+        "summary": "派送外卖订单",
         "operationId": "sendUsingPUT",
         "consumes": [
           "application/json"
@@ -1543,7 +1545,7 @@
         "tags": [
           "orders-controller"
         ],
-        "summary": "再来一单接口",
+        "summary": "再来一单",
         "operationId": "againUsingPOST",
         "consumes": [
           "application/json"
@@ -1589,7 +1591,7 @@
         "tags": [
           "orders-controller"
         ],
-        "summary": "后台查看订单明细接口",
+        "summary": "后台查看订单明细",
         "operationId": "pageUsingGET_3",
         "produces": [
           "*/*"
@@ -1657,7 +1659,7 @@
         "tags": [
           "orders-controller"
         ],
-        "summary": "用户下单接口",
+        "summary": "用户下单",
         "operationId": "submitUsingPOST",
         "consumes": [
           "application/json"
@@ -1703,7 +1705,7 @@
         "tags": [
           "orders-controller"
         ],
-        "summary": "订单分页数据查询接口",
+        "summary": "订单分页数据查询",
         "operationId": "userPageUsingGET",
         "produces": [
           "*/*"
@@ -1750,7 +1752,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "新增套餐接口",
+        "summary": "新增套餐",
         "operationId": "saveUsingPOST_4",
         "consumes": [
           "application/json"
@@ -1794,7 +1796,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "修改套餐查询接口",
+        "summary": "修改套餐信息",
         "operationId": "updateUsingPUT_4",
         "consumes": [
           "application/json"
@@ -1838,7 +1840,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "套餐删除接口",
+        "summary": "删除套餐",
         "operationId": "deleteUsingDELETE_3",
         "produces": [
           "*/*"
@@ -1881,7 +1883,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "dish",
+        "summary": "移动端查看套餐下的菜品信息",
         "operationId": "dishUsingGET",
         "produces": [
           "*/*"
@@ -1920,7 +1922,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "根据条件查询套餐数据接口",
+        "summary": "根据条件查询套餐数据",
         "operationId": "listUsingGET_3",
         "produces": [
           "*/*"
@@ -2050,7 +2052,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "套餐分页查询接口",
+        "summary": "套餐分页查询",
         "operationId": "pageUsingGET_4",
         "produces": [
           "*/*"
@@ -2104,7 +2106,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "修改售卖状态接口",
+        "summary": "修改套餐售卖状态",
         "operationId": "saleUsingPOST_1",
         "consumes": [
           "application/json"
@@ -2160,7 +2162,7 @@
         "tags": [
           "套餐相关接口"
         ],
-        "summary": "套餐条件查询接口",
+        "summary": "通过id获取套餐信息",
         "operationId": "getByIdUsingGET_1",
         "produces": [
           "*/*"
@@ -2199,7 +2201,7 @@
         "tags": [
           "shopping-cart-controller"
         ],
-        "summary": "添加购物车数据接口",
+        "summary": "添加购物车数据",
         "operationId": "addUsingPOST",
         "consumes": [
           "application/json"
@@ -2245,7 +2247,7 @@
         "tags": [
           "shopping-cart-controller"
         ],
-        "summary": "清空购物车接口",
+        "summary": "清空购物车",
         "operationId": "cleanUsingDELETE",
         "produces": [
           "*/*"
@@ -2274,7 +2276,7 @@
         "tags": [
           "shopping-cart-controller"
         ],
-        "summary": "获取购物车列表接口",
+        "summary": "获取购物车列表",
         "operationId": "listUsingGET_4",
         "produces": [
           "*/*"
@@ -2303,7 +2305,7 @@
         "tags": [
           "shopping-cart-controller"
         ],
-        "summary": "减少菜品接口",
+        "summary": "减少购物车中菜品",
         "operationId": "subUsingPOST",
         "consumes": [
           "application/json"
@@ -2349,7 +2351,7 @@
         "tags": [
           "user-controller"
         ],
-        "summary": "用户登录接口",
+        "summary": "用户登录",
         "operationId": "loginUsingPOST_1",
         "consumes": [
           "application/json"
@@ -2438,7 +2440,7 @@
         "tags": [
           "user-controller"
         ],
-        "summary": "用户登出接口",
+        "summary": "用户退出",
         "operationId": "logoutUsingPOST_1",
         "consumes": [
           "application/json"
@@ -2473,7 +2475,7 @@
         "tags": [
           "user-controller"
         ],
-        "summary": "发送短信接口",
+        "summary": "发送短信",
         "operationId": "sendMsgUsingPOST",
         "consumes": [
           "application/json"
@@ -2539,7 +2541,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/R«User对象»"
+              "$ref": "#/definitions/R«string»"
             }
           },
           "201": {

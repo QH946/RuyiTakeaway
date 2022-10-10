@@ -34,7 +34,7 @@ public class ShoppingCartController {
      * @param shoppingCart
      * @return
      */
-    @ApiOperation("添加购物车数据接口")
+    @ApiOperation("添加购物车数据")
     @PostMapping("/add")
     public R<ShoppingCart> add(@RequestBody ShoppingCart shoppingCart) {
         log.info("购物车数据:{}", shoppingCart);
@@ -47,7 +47,7 @@ public class ShoppingCartController {
      *
      * @return
      */
-    @ApiOperation("获取购物车列表接口")
+    @ApiOperation("获取购物车列表")
     @GetMapping("/list")
     public R<List<ShoppingCart>> list() {
         log.info("查看购物车...");
@@ -56,12 +56,12 @@ public class ShoppingCartController {
     }
 
     /**
-     * 减少菜品
+     * 减少购物车中的菜品
      *
      * @param shoppingCart
      * @return
      */
-    @ApiOperation("减少菜品接口")
+    @ApiOperation("减少购物车中菜品")
     @PostMapping("/sub")
     public R<ShoppingCart> sub(@RequestBody ShoppingCart shoppingCart) {
         ShoppingCart sc = shoppingCartService.reduceDish(shoppingCart);
@@ -73,7 +73,7 @@ public class ShoppingCartController {
      *
      * @return
      */
-    @ApiOperation("清空购物车接口")
+    @ApiOperation("清空购物车")
     @DeleteMapping("/clean")
     public R<String> clean() {
         //SQL:delete from shopping_cart where user_id = ?

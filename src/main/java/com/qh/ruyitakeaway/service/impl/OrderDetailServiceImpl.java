@@ -20,6 +20,12 @@ import java.util.List;
 @Service
 public class OrderDetailServiceImpl extends ServiceImpl<OrderDetailMapper, OrderDetail> implements OrderDetailService {
 
+    /**
+     * 根据订单id查询订单详细
+     *
+     * @param id id
+     * @return {@link List}<{@link OrderDetail}>
+     */
     @Override
     public List<OrderDetail> findByOrderId(Long id) {
         LambdaQueryWrapper<OrderDetail> queryWrapper = new LambdaQueryWrapper<>();
