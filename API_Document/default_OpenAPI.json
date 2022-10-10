@@ -9,10 +9,6 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "user-controller",
-      "description": "User Controller"
-    },
-    {
       "name": "分类管理",
       "description": "Category Controller"
     },
@@ -27,6 +23,10 @@
     {
       "name": "套餐管理",
       "description": "Setmeal Controller"
+    },
+    {
+      "name": "移动端用户",
+      "description": "User Controller"
     },
     {
       "name": "菜品管理",
@@ -2349,7 +2349,7 @@
     "/user/login": {
       "post": {
         "tags": [
-          "user-controller"
+          "移动端用户"
         ],
         "summary": "用户登录",
         "operationId": "loginUsingPOST_1",
@@ -2438,7 +2438,7 @@
     "/user/logout": {
       "post": {
         "tags": [
-          "user-controller"
+          "移动端用户"
         ],
         "summary": "用户退出",
         "operationId": "logoutUsingPOST_1",
@@ -2473,7 +2473,7 @@
     "/user/sendMsg": {
       "post": {
         "tags": [
-          "user-controller"
+          "移动端用户"
         ],
         "summary": "发送短信",
         "operationId": "sendMsgUsingPOST",

@@ -26,7 +26,7 @@ import java.util.Map;
  * @author QH
  * @since 2022-09-08
  */
-@Api("tags =移动端用户")
+@Api(tags = "移动端用户")
 @Slf4j
 @RestController
 @RequestMapping("/user")

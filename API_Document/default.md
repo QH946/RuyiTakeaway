@@ -23,237 +23,6 @@
 
 
 
-# user-controller
-
-
-## 用户登录
-
-
-**接口地址**:`/user/login`
-
-
-**请求方式**:`POST`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:
-
-
-**请求参数**:
-
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|map|map|body|true|object||
-|creationTime||query|false|integer(int64)||
-|id||query|false|string||
-|lastAccessedTime||query|false|integer(int64)||
-|maxInactiveInterval||query|false|integer(int32)||
-|new||query|false|boolean||
-|valueNames||query|false|array|string|
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK|R«User对象»|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
-
-
-**响应参数**:
-
-
-| 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
-|code||integer(int32)|integer(int32)|
-|data||User对象|User对象|
-|&emsp;&emsp;avatar|头像|string||
-|&emsp;&emsp;id|主键|integer(int64)||
-|&emsp;&emsp;idNumber|身份证号|string||
-|&emsp;&emsp;name|姓名|string||
-|&emsp;&emsp;phone|手机号|string||
-|&emsp;&emsp;sex|性别|string||
-|&emsp;&emsp;status|状态 0:禁用，1:正常|integer(int32)||
-|map||object||
-|msg||string||
-
-
-**响应示例**:
-```javascript
-{
-	"code": 0,
-	"data": {
-		"avatar": "",
-		"id": 0,
-		"idNumber": "",
-		"name": "",
-		"phone": "",
-		"sex": "",
-		"status": 0
-	},
-	"map": {},
-	"msg": ""
-}
-```
-
-
-## 用户退出
-
-
-**接口地址**:`/user/logout`
-
-
-**请求方式**:`POST`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:
-
-
-**请求参数**:
-
-
-暂无
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK|R«string»|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
-
-
-**响应参数**:
-
-
-| 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
-|code||integer(int32)|integer(int32)|
-|data||string||
-|map||object||
-|msg||string||
-
-
-**响应示例**:
-```javascript
-{
-	"code": 0,
-	"data": "",
-	"map": {},
-	"msg": ""
-}
-```
-
-
-## 发送短信
-
-
-**接口地址**:`/user/sendMsg`
-
-
-**请求方式**:`POST`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:
-
-
-**请求示例**:
-
-
-```javascript
-{
-  "avatar": "",
-  "id": 0,
-  "idNumber": "",
-  "name": "",
-  "phone": "",
-  "sex": "",
-  "status": 0
-}
-```
-
-
-**请求参数**:
-
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|user|用户信息|body|true|User对象|User对象|
-|&emsp;&emsp;avatar|头像||false|string||
-|&emsp;&emsp;id|主键||false|integer(int64)||
-|&emsp;&emsp;idNumber|身份证号||false|string||
-|&emsp;&emsp;name|姓名||false|string||
-|&emsp;&emsp;phone|手机号||false|string||
-|&emsp;&emsp;sex|性别||false|string||
-|&emsp;&emsp;status|状态 0:禁用，1:正常||false|integer(int32)||
-|creationTime||query|false|integer(int64)||
-|id||query|false|string||
-|lastAccessedTime||query|false|integer(int64)||
-|maxInactiveInterval||query|false|integer(int32)||
-|new||query|false|boolean||
-|valueNames||query|false|array|string|
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK|R«string»|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
-
-
-**响应参数**:
-
-
-| 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
-|code||integer(int32)|integer(int32)|
-|data||string||
-|map||object||
-|msg||string||
-
-
-**响应示例**:
-```javascript
-{
-	"code": 0,
-	"data": "",
-	"map": {},
-	"msg": ""
-}
-```
-
-
 # 分类管理
 
 
@@ -2723,6 +2492,237 @@
 		"updateTime": "",
 		"updateUser": 0
 	},
+	"map": {},
+	"msg": ""
+}
+```
+
+
+# 移动端用户
+
+
+## 用户登录
+
+
+**接口地址**:`/user/login`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|map|map|body|true|object||
+|creationTime||query|false|integer(int64)||
+|id||query|false|string||
+|lastAccessedTime||query|false|integer(int64)||
+|maxInactiveInterval||query|false|integer(int32)||
+|new||query|false|boolean||
+|valueNames||query|false|array|string|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|R«User对象»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code||integer(int32)|integer(int32)|
+|data||User对象|User对象|
+|&emsp;&emsp;avatar|头像|string||
+|&emsp;&emsp;id|主键|integer(int64)||
+|&emsp;&emsp;idNumber|身份证号|string||
+|&emsp;&emsp;name|姓名|string||
+|&emsp;&emsp;phone|手机号|string||
+|&emsp;&emsp;sex|性别|string||
+|&emsp;&emsp;status|状态 0:禁用，1:正常|integer(int32)||
+|map||object||
+|msg||string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"avatar": "",
+		"id": 0,
+		"idNumber": "",
+		"name": "",
+		"phone": "",
+		"sex": "",
+		"status": 0
+	},
+	"map": {},
+	"msg": ""
+}
+```
+
+
+## 用户退出
+
+
+**接口地址**:`/user/logout`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:
+
+
+**请求参数**:
+
+
+暂无
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|R«string»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code||integer(int32)|integer(int32)|
+|data||string||
+|map||object||
+|msg||string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": "",
+	"map": {},
+	"msg": ""
+}
+```
+
+
+## 发送短信
+
+
+**接口地址**:`/user/sendMsg`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "avatar": "",
+  "id": 0,
+  "idNumber": "",
+  "name": "",
+  "phone": "",
+  "sex": "",
+  "status": 0
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|user|用户信息|body|true|User对象|User对象|
+|&emsp;&emsp;avatar|头像||false|string||
+|&emsp;&emsp;id|主键||false|integer(int64)||
+|&emsp;&emsp;idNumber|身份证号||false|string||
+|&emsp;&emsp;name|姓名||false|string||
+|&emsp;&emsp;phone|手机号||false|string||
+|&emsp;&emsp;sex|性别||false|string||
+|&emsp;&emsp;status|状态 0:禁用，1:正常||false|integer(int32)||
+|creationTime||query|false|integer(int64)||
+|id||query|false|string||
+|lastAccessedTime||query|false|integer(int64)||
+|maxInactiveInterval||query|false|integer(int32)||
+|new||query|false|boolean||
+|valueNames||query|false|array|string|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|R«string»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code||integer(int32)|integer(int32)|
+|data||string||
+|map||object||
+|msg||string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": "",
 	"map": {},
 	"msg": ""
 }

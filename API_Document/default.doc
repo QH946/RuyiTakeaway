@@ -112,569 +112,12 @@
 
 
 <h1>2.接口列表</h1>
-<h2>2.1user-controller</h2>
+<h2>2.1分类管理</h2>
 
 
 
 
-<h3>2.1.1用户登录</h3>
-<div class="knife4j-word-api">
-<div class="knife4j-word-title">接口地址</div>
-<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/login</code></div>
-<div class="knife4j-word-title">接口描述</div>
-<div class="knife4j-word-content"></div>
-<div class="knife4j-word-title">请求数据类型</div>
-<div class="knife4j-word-content"><code>application/json</code></div>
-<div class="knife4j-word-title">响应数据类型</div>
-<div class="knife4j-word-content"><code>*/*</code></div>
-
-
-<div class="knife4j-word-title">请求参数</div><br/>
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
-<tbody>
-<tr>
-<td>map</td>
-<td>map</td>
-<td>body</td>
-<td>true</td>
-<td>object</td>
-<td></td>
-</tr>
-<tr>
-<td>creationTime</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>id</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>lastAccessedTime</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>maxInactiveInterval</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>integer(int32)</td>
-<td></td>
-</tr>
-<tr>
-<td>new</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>valueNames</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>array</td>
-<td>string</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<div class="knife4j-word-title">响应状态</div><br/>
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
-<tbody>
-
-
-<tr>
-<td>200</td>
-<td>OK</td>
-<td>R«User对象»</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Created</td>
-<td></td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized</td>
-<td></td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td></td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found</td>
-<td></td>
-</tr>
-</tbody>
-</table><br/>
-</div>
-
-
-<div class="knife4j-word-title">响应参数</div>
-
-
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
-<tbody>
-<tr>
-<td>code</td>
-<td></td>
-<td>integer(int32)</td>
-<td>integer(int32)</td>
-</tr>
-<tr>
-<td>data</td>
-<td></td>
-<td>User对象</td>
-<td>User对象</td>
-</tr>
-<tr>
-<td>&nbsp;avatar</td>
-<td>头像</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;id</td>
-<td>主键</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;idNumber</td>
-<td>身份证号</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;name</td>
-<td>姓名</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;phone</td>
-<td>手机号</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;sex</td>
-<td>性别</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;status</td>
-<td>状态 0:禁用，1:正常</td>
-<td>integer(int32)</td>
-<td></td>
-</tr>
-<tr>
-<td>map</td>
-<td></td>
-<td>object</td>
-<td></td>
-</tr>
-<tr>
-<td>msg</td>
-<td></td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<div class="knife4j-word-title">响应示例</div>
-<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
-{
-	<span class="key">"code":</span> <span class="number">0</span>,
-	<span class="key">"data":</span> {
-		<span class="key">"avatar":</span> <span class="string">""</span>,
-		<span class="key">"id":</span> <span class="number">0</span>,
-		<span class="key">"idNumber":</span> <span class="string">""</span>,
-		<span class="key">"name":</span> <span class="string">""</span>,
-		<span class="key">"phone":</span> <span class="string">""</span>,
-		<span class="key">"sex":</span> <span class="string">""</span>,
-		<span class="key">"status":</span> <span class="number">0</span>
-	},
-	<span class="key">"map":</span> {},
-	<span class="key">"msg":</span> <span class="string">""</span>
-}
-</pre></div>
-</div>
-
-
-<h3>2.1.2用户退出</h3>
-<div class="knife4j-word-api">
-<div class="knife4j-word-title">接口地址</div>
-<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/logout</code></div>
-<div class="knife4j-word-title">接口描述</div>
-<div class="knife4j-word-content"></div>
-<div class="knife4j-word-title">请求数据类型</div>
-<div class="knife4j-word-content"><code>application/json</code></div>
-<div class="knife4j-word-title">响应数据类型</div>
-<div class="knife4j-word-content"><code>*/*</code></div>
-
-
-<div class="knife4j-word-title">请求参数</div><br/>
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
-<tbody>
-<tr><td colspan="6">暂无</td></tr>
-</tbody>
-</table>
-</div>
-
-
-<div class="knife4j-word-title">响应状态</div><br/>
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
-<tbody>
-
-
-<tr>
-<td>200</td>
-<td>OK</td>
-<td>R«string»</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Created</td>
-<td></td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized</td>
-<td></td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td></td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found</td>
-<td></td>
-</tr>
-</tbody>
-</table><br/>
-</div>
-
-
-<div class="knife4j-word-title">响应参数</div>
-
-
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
-<tbody>
-<tr>
-<td>code</td>
-<td></td>
-<td>integer(int32)</td>
-<td>integer(int32)</td>
-</tr>
-<tr>
-<td>data</td>
-<td></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>map</td>
-<td></td>
-<td>object</td>
-<td></td>
-</tr>
-<tr>
-<td>msg</td>
-<td></td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<div class="knife4j-word-title">响应示例</div>
-<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
-{
-	<span class="key">"code":</span> <span class="number">0</span>,
-	<span class="key">"data":</span> <span class="string">""</span>,
-	<span class="key">"map":</span> {},
-	<span class="key">"msg":</span> <span class="string">""</span>
-}
-</pre></div>
-</div>
-
-
-<h3>2.1.3发送短信</h3>
-<div class="knife4j-word-api">
-<div class="knife4j-word-title">接口地址</div>
-<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/sendMsg</code></div>
-<div class="knife4j-word-title">接口描述</div>
-<div class="knife4j-word-content"></div>
-<div class="knife4j-word-title">请求数据类型</div>
-<div class="knife4j-word-content"><code>application/json</code></div>
-<div class="knife4j-word-title">响应数据类型</div>
-<div class="knife4j-word-content"><code>*/*</code></div>
-<div class="knife4j-word-title">请求示例</div>
-<div class="knife4j-word-content">
-<pre class="knife4j-word-code-editor">
-{
-  <span class="key">"avatar":</span> <span class="string">""</span>,
-  <span class="key">"id":</span> <span class="number">0</span>,
-  <span class="key">"idNumber":</span> <span class="string">""</span>,
-  <span class="key">"name":</span> <span class="string">""</span>,
-  <span class="key">"phone":</span> <span class="string">""</span>,
-  <span class="key">"sex":</span> <span class="string">""</span>,
-  <span class="key">"status":</span> <span class="number">0</span>
-}
-</pre>
-</div>
-
-
-<div class="knife4j-word-title">请求参数</div><br/>
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
-<tbody>
-<tr>
-<td>user</td>
-<td>用户信息</td>
-<td>body</td>
-<td>true</td>
-<td>User对象</td>
-<td>User对象</td>
-</tr>
-<tr>
-<td>&nbsp;avatar</td>
-<td>头像</td>
-<td></td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;id</td>
-<td>主键</td>
-<td></td>
-<td>false</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;idNumber</td>
-<td>身份证号</td>
-<td></td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;name</td>
-<td>姓名</td>
-<td></td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;phone</td>
-<td>手机号</td>
-<td></td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;sex</td>
-<td>性别</td>
-<td></td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>&nbsp;status</td>
-<td>状态 0:禁用，1:正常</td>
-<td></td>
-<td>false</td>
-<td>integer(int32)</td>
-<td></td>
-</tr>
-<tr>
-<td>creationTime</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>id</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>lastAccessedTime</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>integer(int64)</td>
-<td></td>
-</tr>
-<tr>
-<td>maxInactiveInterval</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>integer(int32)</td>
-<td></td>
-</tr>
-<tr>
-<td>new</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>valueNames</td>
-<td></td>
-<td>query</td>
-<td>false</td>
-<td>array</td>
-<td>string</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<div class="knife4j-word-title">响应状态</div><br/>
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
-<tbody>
-
-
-<tr>
-<td>200</td>
-<td>OK</td>
-<td>R«string»</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Created</td>
-<td></td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized</td>
-<td></td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td></td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found</td>
-<td></td>
-</tr>
-</tbody>
-</table><br/>
-</div>
-
-
-<div class="knife4j-word-title">响应参数</div>
-
-
-<div class="knife4j-word-content">
-<table class="knife4j-word-table">
-<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
-<tbody>
-<tr>
-<td>code</td>
-<td></td>
-<td>integer(int32)</td>
-<td>integer(int32)</td>
-</tr>
-<tr>
-<td>data</td>
-<td></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>map</td>
-<td></td>
-<td>object</td>
-<td></td>
-</tr>
-<tr>
-<td>msg</td>
-<td></td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<div class="knife4j-word-title">响应示例</div>
-<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
-{
-	<span class="key">"code":</span> <span class="number">0</span>,
-	<span class="key">"data":</span> <span class="string">""</span>,
-	<span class="key">"map":</span> {},
-	<span class="key">"msg":</span> <span class="string">""</span>
-}
-</pre></div>
-</div>
-<h2>2.2分类管理</h2>
-
-
-
-
-<h3>2.2.1新增分类</h3>
+<h3>2.1.1新增分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/category</code></div>
@@ -868,7 +311,7 @@
 </div>
 
 
-<h3>2.2.2修改分类</h3>
+<h3>2.1.2修改分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/category</code></div>
@@ -1062,7 +505,7 @@
 </div>
 
 
-<h3>2.2.3删除分类</h3>
+<h3>2.1.3删除分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/category</code></div>
@@ -1172,7 +615,7 @@
 </div>
 
 
-<h3>2.2.4查询分类数据</h3>
+<h3>2.1.4查询分类数据</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/category/list</code></div>
@@ -1397,7 +840,7 @@
 </div>
 
 
-<h3>2.2.5分页查询套餐及菜品分类</h3>
+<h3>2.1.5分页查询套餐及菜品分类</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/category/page</code></div>
@@ -1601,12 +1044,12 @@
 }
 </pre></div>
 </div>
-<h2>2.3员工管理</h2>
+<h2>2.2员工管理</h2>
 
 
 
 
-<h3>2.3.1新增员工</h3>
+<h3>2.2.1新增员工</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/employee</code></div>
@@ -1836,7 +1279,7 @@
 </div>
 
 
-<h3>2.3.2修改员工信息</h3>
+<h3>2.2.2修改员工信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/employee</code></div>
@@ -2066,7 +1509,7 @@
 </div>
 
 
-<h3>2.3.3员工登录</h3>
+<h3>2.2.3员工登录</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/employee/login</code></div>
@@ -2381,7 +1824,7 @@
 </div>
 
 
-<h3>2.3.4员工退出</h3>
+<h3>2.2.4员工退出</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/employee/logout</code></div>
@@ -2489,7 +1932,7 @@
 </div>
 
 
-<h3>2.3.5分页查询员工信息</h3>
+<h3>2.2.5分页查询员工信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/employee/page</code></div>
@@ -2703,7 +2146,7 @@
 </div>
 
 
-<h3>2.3.6获取单个员工信息</h3>
+<h3>2.2.6获取单个员工信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/employee/{id}</code></div>
@@ -2896,12 +2339,12 @@
 }
 </pre></div>
 </div>
-<h2>2.4地址铺管理</h2>
+<h2>2.3地址铺管理</h2>
 
 
 
 
-<h3>2.4.1添加地址信息</h3>
+<h3>2.3.1添加地址信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/addressBook</code></div>
@@ -3328,7 +2771,7 @@
 </div>
 
 
-<h3>2.4.2修改地址信息</h3>
+<h3>2.3.2修改地址信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/addressBook</code></div>
@@ -3621,7 +3064,7 @@
 </div>
 
 
-<h3>2.4.3删除地址</h3>
+<h3>2.3.3删除地址</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/addressBook</code></div>
@@ -3731,7 +3174,7 @@
 </div>
 
 
-<h3>2.4.4获取默认地址</h3>
+<h3>2.3.4获取默认地址</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/addressBook/default</code></div>
@@ -3968,7 +3411,7 @@
 </div>
 
 
-<h3>2.4.5设置默认地址</h3>
+<h3>2.3.5设置默认地址</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/addressBook/default</code></div>
@@ -4395,7 +3838,7 @@
 </div>
 
 
-<h3>2.4.6获取指定地址</h3>
+<h3>2.3.6获取指定地址</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/addressBook/list</code></div>
@@ -4785,7 +4228,7 @@
 </div>
 
 
-<h3>2.4.7获取地址列表</h3>
+<h3>2.3.7获取地址列表</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/addressBook/{id}</code></div>
@@ -4893,12 +4336,12 @@
 }
 </pre></div>
 </div>
-<h2>2.5套餐管理</h2>
+<h2>2.4套餐管理</h2>
 
 
 
 
-<h3>2.5.1新增套餐</h3>
+<h3>2.4.1新增套餐</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/setmeal</code></div>
@@ -5266,7 +4709,7 @@
 </div>
 
 
-<h3>2.5.2修改套餐信息</h3>
+<h3>2.4.2修改套餐信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">PUT</span>&nbsp;&nbsp;<code>/setmeal</code></div>
@@ -5634,7 +5077,7 @@
 </div>
 
 
-<h3>2.5.3删除套餐</h3>
+<h3>2.4.3删除套餐</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">DELETE</span>&nbsp;&nbsp;<code>/setmeal</code></div>
@@ -5744,7 +5187,7 @@
 </div>
 
 
-<h3>2.5.4移动端查看套餐下的菜品信息</h3>
+<h3>2.4.4移动端查看套餐下的菜品信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/dish/{id}</code></div>
@@ -6042,7 +5485,7 @@
 </div>
 
 
-<h3>2.5.5根据条件查询套餐数据</h3>
+<h3>2.4.5根据条件查询套餐数据</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/list</code></div>
@@ -6342,7 +5785,7 @@
 </div>
 
 
-<h3>2.5.6套餐分页查询</h3>
+<h3>2.4.6套餐分页查询</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/page</code></div>
@@ -6556,7 +5999,7 @@
 </div>
 
 
-<h3>2.5.7修改套餐售卖状态</h3>
+<h3>2.4.7修改套餐售卖状态</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/setmeal/status/{status}</code></div>
@@ -6679,7 +6122,7 @@
 </div>
 
 
-<h3>2.5.8通过id获取套餐信息</h3>
+<h3>2.4.8通过id获取套餐信息</h3>
 <div class="knife4j-word-api">
 <div class="knife4j-word-title">接口地址</div>
 <div class="knife4j-word-content"><span class="knife4j-word-method">GET</span>&nbsp;&nbsp;<code>/setmeal/{id}</code></div>
@@ -6975,6 +6418,563 @@
 		<span class="key">"updateTime":</span> <span class="string">""</span>,
 		<span class="key">"updateUser":</span> <span class="number">0</span>
 	},
+	<span class="key">"map":</span> {},
+	<span class="key">"msg":</span> <span class="string">""</span>
+}
+</pre></div>
+</div>
+<h2>2.5移动端用户</h2>
+
+
+
+
+<h3>2.5.1用户登录</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/login</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>map</td>
+<td>map</td>
+<td>body</td>
+<td>true</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>creationTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastAccessedTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>maxInactiveInterval</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>new</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>valueNames</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>array</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>R«User对象»</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code</td>
+<td></td>
+<td>integer(int32)</td>
+<td>integer(int32)</td>
+</tr>
+<tr>
+<td>data</td>
+<td></td>
+<td>User对象</td>
+<td>User对象</td>
+</tr>
+<tr>
+<td>&nbsp;avatar</td>
+<td>头像</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;id</td>
+<td>主键</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;idNumber</td>
+<td>身份证号</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;name</td>
+<td>姓名</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;phone</td>
+<td>手机号</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;sex</td>
+<td>性别</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;status</td>
+<td>状态 0:禁用，1:正常</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td></td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+{
+	<span class="key">"code":</span> <span class="number">0</span>,
+	<span class="key">"data":</span> {
+		<span class="key">"avatar":</span> <span class="string">""</span>,
+		<span class="key">"id":</span> <span class="number">0</span>,
+		<span class="key">"idNumber":</span> <span class="string">""</span>,
+		<span class="key">"name":</span> <span class="string">""</span>,
+		<span class="key">"phone":</span> <span class="string">""</span>,
+		<span class="key">"sex":</span> <span class="string">""</span>,
+		<span class="key">"status":</span> <span class="number">0</span>
+	},
+	<span class="key">"map":</span> {},
+	<span class="key">"msg":</span> <span class="string">""</span>
+}
+</pre></div>
+</div>
+
+
+<h3>2.5.2用户退出</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/logout</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr><td colspan="6">暂无</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>R«string»</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code</td>
+<td></td>
+<td>integer(int32)</td>
+<td>integer(int32)</td>
+</tr>
+<tr>
+<td>data</td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td></td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+{
+	<span class="key">"code":</span> <span class="number">0</span>,
+	<span class="key">"data":</span> <span class="string">""</span>,
+	<span class="key">"map":</span> {},
+	<span class="key">"msg":</span> <span class="string">""</span>
+}
+</pre></div>
+</div>
+
+
+<h3>2.5.3发送短信</h3>
+<div class="knife4j-word-api">
+<div class="knife4j-word-title">接口地址</div>
+<div class="knife4j-word-content"><span class="knife4j-word-method">POST</span>&nbsp;&nbsp;<code>/user/sendMsg</code></div>
+<div class="knife4j-word-title">接口描述</div>
+<div class="knife4j-word-content"></div>
+<div class="knife4j-word-title">请求数据类型</div>
+<div class="knife4j-word-content"><code>application/json</code></div>
+<div class="knife4j-word-title">响应数据类型</div>
+<div class="knife4j-word-content"><code>*/*</code></div>
+<div class="knife4j-word-title">请求示例</div>
+<div class="knife4j-word-content">
+<pre class="knife4j-word-code-editor">
+{
+  <span class="key">"avatar":</span> <span class="string">""</span>,
+  <span class="key">"id":</span> <span class="number">0</span>,
+  <span class="key">"idNumber":</span> <span class="string">""</span>,
+  <span class="key">"name":</span> <span class="string">""</span>,
+  <span class="key">"phone":</span> <span class="string">""</span>,
+  <span class="key">"sex":</span> <span class="string">""</span>,
+  <span class="key">"status":</span> <span class="number">0</span>
+}
+</pre>
+</div>
+
+
+<div class="knife4j-word-title">请求参数</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>请求类型</th><th>必须</th><th>数据类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>用户信息</td>
+<td>body</td>
+<td>true</td>
+<td>User对象</td>
+<td>User对象</td>
+</tr>
+<tr>
+<td>&nbsp;avatar</td>
+<td>头像</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;id</td>
+<td>主键</td>
+<td></td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;idNumber</td>
+<td>身份证号</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;name</td>
+<td>姓名</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;phone</td>
+<td>手机号</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;sex</td>
+<td>性别</td>
+<td></td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp;status</td>
+<td>状态 0:禁用，1:正常</td>
+<td></td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>creationTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>lastAccessedTime</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int64)</td>
+<td></td>
+</tr>
+<tr>
+<td>maxInactiveInterval</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>integer(int32)</td>
+<td></td>
+</tr>
+<tr>
+<td>new</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>valueNames</td>
+<td></td>
+<td>query</td>
+<td>false</td>
+<td>array</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应状态</div><br/>
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>状态码</th><th>说明</th><th>schema</th></tr></thead>
+<tbody>
+
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>R«string»</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+</tbody>
+</table><br/>
+</div>
+
+
+<div class="knife4j-word-title">响应参数</div>
+
+
+<div class="knife4j-word-content">
+<table class="knife4j-word-table">
+<thead><tr><th>参数名称</th><th>参数说明</th><th>类型</th><th>schema</th></tr></thead>
+<tbody>
+<tr>
+<td>code</td>
+<td></td>
+<td>integer(int32)</td>
+<td>integer(int32)</td>
+</tr>
+<tr>
+<td>data</td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td></td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="knife4j-word-title">响应示例</div>
+<div class="knife4j-word-content"><pre class="knife4j-word-code-editor">
+{
+	<span class="key">"code":</span> <span class="number">0</span>,
+	<span class="key">"data":</span> <span class="string">""</span>,
 	<span class="key">"map":</span> {},
 	<span class="key">"msg":</span> <span class="string">""</span>
 }
