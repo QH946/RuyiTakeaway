@@ -28,7 +28,7 @@ import java.util.List;
  * @author QH
  * @since 2022-09-08
  */
-@Api(tags = "套餐相关接口")
+@Api(tags = "套餐管理")
 @Slf4j
 @CacheConfig(cacheNames = {"setmealCache"})
 @RestController
@@ -36,6 +36,7 @@ import java.util.List;
 public class SetmealController {
     @Autowired
     private SetmealService setmealService;
+
     /**
      * 新增套餐
      *
@@ -137,7 +138,7 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/list")
-    @Cacheable(key = "#setmeal.categoryId + '_'+ #setmeal.status", unless = "#result.data == null")
+    @Cacheable(key = "#setmeal.categoryId + '_' + #setmeal.status", unless = "#result.data == null")
     @ApiOperation(value = "根据条件查询套餐数据")
     public R<List<Setmeal>> list(Setmeal setmeal) {
         List<Setmeal> list = setmealService.getList(setmeal);

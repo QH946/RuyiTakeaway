@@ -9,47 +9,47 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "address-book-controller",
-      "description": "Address Book Controller"
-    },
-    {
-      "name": "category-controller",
-      "description": "Category Controller"
-    },
-    {
-      "name": "common-controller",
-      "description": "Common Controller"
-    },
-    {
-      "name": "dish-controller",
-      "description": "Dish Controller"
-    },
-    {
-      "name": "employee-controller",
-      "description": "Employee Controller"
-    },
-    {
-      "name": "orders-controller",
-      "description": "Orders Controller"
-    },
-    {
-      "name": "shopping-cart-controller",
-      "description": "Shopping Cart Controller"
-    },
-    {
       "name": "user-controller",
       "description": "User Controller"
     },
     {
-      "name": "套餐相关接口",
+      "name": "分类管理",
+      "description": "Category Controller"
+    },
+    {
+      "name": "员工管理",
+      "description": "Employee Controller"
+    },
+    {
+      "name": "地址铺管理",
+      "description": "Address Book Controller"
+    },
+    {
+      "name": "套餐管理",
       "description": "Setmeal Controller"
+    },
+    {
+      "name": "菜品管理",
+      "description": "Dish Controller"
+    },
+    {
+      "name": "订单管理",
+      "description": "Orders Controller"
+    },
+    {
+      "name": "购物车管理",
+      "description": "Shopping Cart Controller"
+    },
+    {
+      "name": "通用管理",
+      "description": "Common Controller"
     }
   ],
   "paths": {
     "/addressBook": {
       "post": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "添加地址信息",
         "operationId": "saveUsingPOST",
@@ -93,7 +93,7 @@
       },
       "put": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "修改地址信息",
         "operationId": "updateUsingPUT",
@@ -137,7 +137,7 @@
       },
       "delete": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "删除地址",
         "operationId": "deleteUsingDELETE",
@@ -180,7 +180,7 @@
     "/addressBook/default": {
       "get": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "获取默认地址",
         "operationId": "getDefaultUsingGET",
@@ -207,7 +207,7 @@
       },
       "put": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "设置默认地址",
         "operationId": "setDefaultUsingPUT",
@@ -253,7 +253,7 @@
     "/addressBook/list": {
       "get": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "获取指定地址",
         "operationId": "listUsingGET",
@@ -425,7 +425,7 @@
     "/addressBook/{id}": {
       "get": {
         "tags": [
-          "address-book-controller"
+          "地址铺管理"
         ],
         "summary": "获取地址列表",
         "operationId": "getUsingGET",
@@ -464,7 +464,7 @@
     "/category": {
       "post": {
         "tags": [
-          "category-controller"
+          "分类管理"
         ],
         "summary": "新增分类",
         "operationId": "saveUsingPOST_1",
@@ -508,7 +508,7 @@
       },
       "put": {
         "tags": [
-          "category-controller"
+          "分类管理"
         ],
         "summary": "修改分类",
         "operationId": "updateUsingPUT_1",
@@ -552,7 +552,7 @@
       },
       "delete": {
         "tags": [
-          "category-controller"
+          "分类管理"
         ],
         "summary": "删除分类",
         "operationId": "deleteUsingDELETE_1",
@@ -591,7 +591,7 @@
     "/category/list": {
       "get": {
         "tags": [
-          "category-controller"
+          "分类管理"
         ],
         "summary": "查询分类数据",
         "operationId": "listUsingGET_1",
@@ -685,7 +685,7 @@
     "/category/page": {
       "get": {
         "tags": [
-          "category-controller"
+          "分类管理"
         ],
         "summary": "分页查询套餐及菜品分类",
         "operationId": "pageUsingGET",
@@ -732,7 +732,7 @@
     "/common/download": {
       "get": {
         "tags": [
-          "common-controller"
+          "通用管理"
         ],
         "summary": "文件下载",
         "operationId": "downloadUsingGET",
@@ -767,7 +767,7 @@
     "/common/upload": {
       "post": {
         "tags": [
-          "common-controller"
+          "通用管理"
         ],
         "summary": "文件上传",
         "operationId": "uploadUsingPOST",
@@ -814,7 +814,7 @@
     "/dish": {
       "post": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "新增菜品",
         "operationId": "saveUsingPOST_2",
@@ -858,7 +858,7 @@
       },
       "put": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "更新菜品信息",
         "operationId": "updateUsingPUT_2",
@@ -902,7 +902,7 @@
       },
       "delete": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "删除菜品",
         "operationId": "deleteUsingDELETE_2",
@@ -945,7 +945,7 @@
     "/dish/list": {
       "get": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "分类id查询菜品信息",
         "operationId": "listUsingGET_2",
@@ -1083,7 +1083,7 @@
     "/dish/page": {
       "get": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "分页查询菜品信息",
         "operationId": "pageUsingGET_1",
@@ -1137,7 +1137,7 @@
     "/dish/status/{statusType}": {
       "post": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "停用或者启用菜品",
         "operationId": "saleUsingPOST",
@@ -1194,7 +1194,7 @@
     "/dish/{id}": {
       "get": {
         "tags": [
-          "dish-controller"
+          "菜品管理"
         ],
         "summary": "通过id查询菜品的详细信息",
         "operationId": "getUsingGET_1",
@@ -1233,7 +1233,7 @@
     "/employee": {
       "post": {
         "tags": [
-          "employee-controller"
+          "员工管理"
         ],
         "summary": "新增员工",
         "operationId": "saveUsingPOST_3",
@@ -1277,7 +1277,7 @@
       },
       "put": {
         "tags": [
-          "employee-controller"
+          "员工管理"
         ],
         "summary": "修改员工信息",
         "operationId": "updateUsingPUT_3",
@@ -1323,7 +1323,7 @@
     "/employee/login": {
       "post": {
         "tags": [
-          "employee-controller"
+          "员工管理"
         ],
         "summary": "员工登录",
         "operationId": "loginUsingPOST",
@@ -1369,7 +1369,7 @@
     "/employee/logout": {
       "post": {
         "tags": [
-          "employee-controller"
+          "员工管理"
         ],
         "summary": "员工退出",
         "operationId": "logoutUsingPOST",
@@ -1404,7 +1404,7 @@
     "/employee/page": {
       "get": {
         "tags": [
-          "employee-controller"
+          "员工管理"
         ],
         "summary": "分页查询员工信息",
         "operationId": "pageUsingGET_2",
@@ -1458,7 +1458,7 @@
     "/employee/{id}": {
       "get": {
         "tags": [
-          "employee-controller"
+          "员工管理"
         ],
         "summary": "获取单个员工信息",
         "operationId": "getByIdUsingGET",
@@ -1497,7 +1497,7 @@
     "/order": {
       "put": {
         "tags": [
-          "orders-controller"
+          "订单管理"
         ],
         "summary": "派送外卖订单",
         "operationId": "sendUsingPUT",
@@ -1543,7 +1543,7 @@
     "/order/again": {
       "post": {
         "tags": [
-          "orders-controller"
+          "订单管理"
         ],
         "summary": "再来一单",
         "operationId": "againUsingPOST",
@@ -1589,7 +1589,7 @@
     "/order/page": {
       "get": {
         "tags": [
-          "orders-controller"
+          "订单管理"
         ],
         "summary": "后台查看订单明细",
         "operationId": "pageUsingGET_3",
@@ -1657,7 +1657,7 @@
     "/order/submit": {
       "post": {
         "tags": [
-          "orders-controller"
+          "订单管理"
         ],
         "summary": "用户下单",
         "operationId": "submitUsingPOST",
@@ -1703,7 +1703,7 @@
     "/order/userPage": {
       "get": {
         "tags": [
-          "orders-controller"
+          "订单管理"
         ],
         "summary": "订单分页数据查询",
         "operationId": "userPageUsingGET",
@@ -1750,7 +1750,7 @@
     "/setmeal": {
       "post": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "新增套餐",
         "operationId": "saveUsingPOST_4",
@@ -1794,7 +1794,7 @@
       },
       "put": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "修改套餐信息",
         "operationId": "updateUsingPUT_4",
@@ -1838,7 +1838,7 @@
       },
       "delete": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "删除套餐",
         "operationId": "deleteUsingDELETE_3",
@@ -1881,7 +1881,7 @@
     "/setmeal/dish/{id}": {
       "get": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "移动端查看套餐下的菜品信息",
         "operationId": "dishUsingGET",
@@ -1920,7 +1920,7 @@
     "/setmeal/list": {
       "get": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "根据条件查询套餐数据",
         "operationId": "listUsingGET_3",
@@ -2050,7 +2050,7 @@
     "/setmeal/page": {
       "get": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "套餐分页查询",
         "operationId": "pageUsingGET_4",
@@ -2104,7 +2104,7 @@
     "/setmeal/status/{status}": {
       "post": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "修改套餐售卖状态",
         "operationId": "saleUsingPOST_1",
@@ -2160,7 +2160,7 @@
     "/setmeal/{id}": {
       "get": {
         "tags": [
-          "套餐相关接口"
+          "套餐管理"
         ],
         "summary": "通过id获取套餐信息",
         "operationId": "getByIdUsingGET_1",
@@ -2199,7 +2199,7 @@
     "/shoppingCart/add": {
       "post": {
         "tags": [
-          "shopping-cart-controller"
+          "购物车管理"
         ],
         "summary": "添加购物车数据",
         "operationId": "addUsingPOST",
@@ -2245,7 +2245,7 @@
     "/shoppingCart/clean": {
       "delete": {
         "tags": [
-          "shopping-cart-controller"
+          "购物车管理"
         ],
         "summary": "清空购物车",
         "operationId": "cleanUsingDELETE",
@@ -2274,7 +2274,7 @@
     "/shoppingCart/list": {
       "get": {
         "tags": [
-          "shopping-cart-controller"
+          "购物车管理"
         ],
         "summary": "获取购物车列表",
         "operationId": "listUsingGET_4",
@@ -2303,7 +2303,7 @@
     "/shoppingCart/sub": {
       "post": {
         "tags": [
-          "shopping-cart-controller"
+          "购物车管理"
         ],
         "summary": "减少购物车中菜品",
         "operationId": "subUsingPOST",

@@ -20,7 +20,7 @@ import java.util.List;
  * @author QH
  * @since 2022-09-08
  */
-@Api("购物车管理")
+@Api(tags = "购物车管理")
 @Slf4j
 @RestController
 @RequestMapping("/shoppingCart")

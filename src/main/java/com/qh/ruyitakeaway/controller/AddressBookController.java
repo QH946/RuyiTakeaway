@@ -21,7 +21,7 @@ import java.util.List;
  * @author QH
  * @since 2022-09-08
  */
-@Api("地址铺管理")
+@Api(tags ="地址铺管理")
 @Slf4j
 @RestController
 @RequestMapping("/addressBook")

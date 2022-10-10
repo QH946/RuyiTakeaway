@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * @author QH
  * @since 2022-09-08
  */
-@Api("订单管理")
+@Api(tags = "订单管理")
 @Slf4j
 @RestController
 @RequestMapping("/order")
@@ -93,7 +93,7 @@ public class OrdersController {
     @PutMapping
     public R<String> send(@RequestBody Orders orders) {
         ordersService.send(orders);
-       return R.success("外卖订单派送成功");
+        return R.success("外卖订单派送成功");
     }
 }
 

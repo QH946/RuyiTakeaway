@@ -22,7 +22,7 @@ import java.util.List;
  * @author QH
  * @since 2022-09-08
  */
-@Api("菜品管理")
+@Api(tags = "菜品管理")
 @Slf4j
 @RestController
 @RequestMapping("/dish")

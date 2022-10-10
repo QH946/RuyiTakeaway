@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author QH
  * @since 2022-09-08
  */
-@Api("员工管理")
+@Api(tags = "员工管理")
 @Slf4j
 @RestController
 @RequestMapping("/employee")
@@ -44,6 +44,7 @@ public class EmployeeController {
         Employee emp = employeeService.login(request, employee);
         return R.success(emp);
     }
+
     /**
      * 员工退出
      *

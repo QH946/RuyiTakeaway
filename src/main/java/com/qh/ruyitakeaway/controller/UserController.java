@@ -26,7 +26,7 @@ import java.util.Map;
  * @author QH
  * @since 2022-09-08
  */
-@Api("移动端用户")
+@Api("tags =移动端用户")
 @Slf4j
 @RestController
 @RequestMapping("/user")
@@ -37,6 +37,7 @@ public class UserController {
 
     /**
      * 发送手机短信验证码
+     *
      * @param user
      * @param session
      * @return
