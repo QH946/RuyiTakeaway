@@ -4,13 +4,15 @@ package com.qh.ruyitakeaway.config;
 import com.qh.ruyitakeaway.filter.JwtAuthenticationTokenFilter;
 import com.qh.ruyitakeaway.handler.*;
 import com.qh.ruyitakeaway.service.impl.UserDetailsServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -23,7 +25,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @author qh
  * @date 2022/10/09 12:05:56
  */
-@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     /**
@@ -160,7 +164,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 // 放行
                 .antMatchers("/backend/**", "/employee/login", "/front/**", "/error").permitAll()
-                .antMatchers("/csrf", "/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**","doc.html").permitAll()
+                .antMatchers("/csrf", "/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**", "doc.html").permitAll()
                 .antMatchers("/user/sendMsg", "/user/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/category/list", "/dish/list", "/common/download").permitAll()
                 .antMatchers("/shoppingCart/**", "/setmeal/**", "/order/**", "/addressBook/**").permitAll()
@@ -171,6 +175,8 @@ public class SecurityConfig {
                 .csrf().disable()
                 // 使用iframe的内嵌页面
                 .headers().frameOptions().disable();
+        //允许跨域
+        http.cors();
         // 替换 原来的逻辑
         http.addFilterAt(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
