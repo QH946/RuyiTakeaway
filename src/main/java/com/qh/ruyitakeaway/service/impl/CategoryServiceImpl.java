@@ -99,7 +99,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         //添加条件
         lambdaQueryWrapper.eq(category.getType() != null, Category::getType, category.getType())
                 //添加排序条件
-                .orderByAsc(Category::getSort).orderByAsc(Category::getUpdateTime);
+                .orderByAsc(Category::getSort)
+                .orderByAsc(Category::getUpdateTime);
         List<Category> list = categoryService.list(lambdaQueryWrapper);
         return list;
     }

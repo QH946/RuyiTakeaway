@@ -27,10 +27,10 @@ public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthentication
     @Autowired(required = false)
     private ObjectMapper jsonMapper;
 
-    private ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<>();
+    private final ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<>();
 
-    private SessionAuthenticationStrategy sessionStrategy = new NullAuthenticatedSessionStrategy();
-    private boolean continueChainBeforeSuccessfulAuthentication = false;
+    private final SessionAuthenticationStrategy sessionStrategy = new NullAuthenticatedSessionStrategy();
+    private final boolean continueChainBeforeSuccessfulAuthentication = false;
 
 
     @Override
