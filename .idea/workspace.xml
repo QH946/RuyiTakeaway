@@ -3,149 +3,20 @@
   <component name="AnalysisUIOptions">
     <option name="GROUP_BY_SEVERITY" value="true" />
     <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70438391-070f-4a95-ba5a-164bf0d4bbf6" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d097f558-87d4-4a21-af30-aa67798e68d4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d097f558-87d4-4a21-af30-aa67798e68d4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/filter/JwtAuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qh/ruyitakeaway/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/api/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/api/combo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/api/food.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/api/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/api/member.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/api/order.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/404-images/404-cloud.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/404-images/404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/btn_back@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/btn_clean@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/btn_close@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/icon_index.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/icon_upload@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/jine_m-2@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/renshu@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/icons/xiangmujine@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/img_brand01@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/img_denglu_bj.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/login/login-l.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/login/login-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/login/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/images/noImg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/js/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/js/request.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/js/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/category/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/combo/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/combo/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/demo/upload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/food/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/food/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/login/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/member/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/member/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/page/order/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/axios/axios.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/element-ui/fonts/element-icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/element-ui/fonts/element-icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/element-ui/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/element-ui/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/plugins/vue/vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/fonts/element-icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/fonts/element-icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/demo_index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/iconfont.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/iconfont.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/icon/iconfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/styles/page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/api/address.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/api/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/api/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/api/order.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/cartData.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/DIN-Bold.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/DIN-Medium.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/PingFangSC-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/PingFangSC-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/fonts/PingFangSC-Semibold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/cart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/cart_active.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/checked_false.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/checked_true.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/demo1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/demo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/demo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/demo4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/favico.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/headPage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/location.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/locations.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/mainBg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/money.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/noImg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/no_order.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/no_wifi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/orders.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/subtract.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/success.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/time.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/images/women.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/js/base.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/js/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/js/request.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/js/vant.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/add-order.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/address-edit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/address.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/no-wify.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/order.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/pay-success.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/page/user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/add-order.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/address-edit.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/address.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/no-wify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/order.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/pay-success.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/user.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/front/styles/vant.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/AddressBookMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DishFlavorMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EmployeeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/OrderDetailMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/OrdersMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SetmealDishMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SetmealMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ShoppingCartMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,6 +120,7 @@
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\java\com\qh\ruyitakeaway\config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\06_LocalRepository\RuyiTakeaway\db" />
       <recent name="D:\06_LocalRepository\RuyiTakeaway\src\main\resources" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -477,7 +349,45 @@
       <workItem from="1666671325323" duration="92000" />
       <workItem from="1666698481340" duration="5000" />
       <workItem from="1666699269029" duration="153000" />
-      <workItem from="1667010161064" duration="783000" />
+      <workItem from="1667010161064" duration="2055000" />
+      <workItem from="1667019044682" duration="29000" />
+      <workItem from="1667041161638" duration="2154000" />
+      <workItem from="1667052854630" duration="101000" />
+      <workItem from="1667091587029" duration="163000" />
+      <workItem from="1667098456805" duration="613000" />
+      <workItem from="1667102759460" duration="74000" />
+      <workItem from="1667214393750" duration="158000" />
+      <workItem from="1667214802086" duration="21000" />
+      <workItem from="1667216051163" duration="29000" />
+      <workItem from="1667217187574" duration="48000" />
+      <workItem from="1667366395985" duration="37000" />
+      <workItem from="1667367785342" duration="23000" />
+      <workItem from="1667455450975" duration="66000" />
+      <workItem from="1667457270259" duration="35000" />
+      <workItem from="1667658254371" duration="80000" />
+      <workItem from="1667658353572" duration="42000" />
+      <workItem from="1667742910431" duration="374000" />
+      <workItem from="1667743563586" duration="9000" />
+      <workItem from="1667998622381" duration="132000" />
+      <workItem from="1668049114373" duration="72000" />
+      <workItem from="1668160120767" duration="6000" />
+      <workItem from="1668689503036" duration="94000" />
+      <workItem from="1668736410022" duration="31000" />
+      <workItem from="1668749178517" duration="110000" />
+      <workItem from="1668749990577" duration="36000" />
+      <workItem from="1669017899514" duration="31000" />
+      <workItem from="1669094615389" duration="25000" />
+      <workItem from="1669126681832" duration="74000" />
+      <workItem from="1669279093402" duration="86000" />
+      <workItem from="1669455432896" duration="89000" />
+      <workItem from="1669786540125" duration="129000" />
+      <workItem from="1669786729979" duration="216000" />
+      <workItem from="1669878059616" duration="66000" />
+      <workItem from="1669878142093" duration="37000" />
+      <workItem from="1669878184479" duration="1000" />
+      <workItem from="1669878855333" duration="17000" />
+      <workItem from="1672057905645" duration="313000" />
+      <workItem from="1672283742550" duration="32000" />
     </task>
     <servers />
   </component>
